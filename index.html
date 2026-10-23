@@ -4,16 +4,37 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Featbox · Trabalhar com IA sem perder o controle</title>
-<meta name="description" content="Featbox: FeatDesk, FeatReader e FeatRoom. Cada IA com uma função, toda decisão registrada e aprovada pela pessoa, nenhum provedor com acesso ao projeto inteiro. Versão 0.5.0 para Windows, piloto aberto.">
+<meta name="description" content="Featbox: FeatDesk, FeatReader e FeatRoom. Cada IA com uma função, toda decisão registrada e aprovada pela pessoa, nenhum provedor com acesso ao projeto inteiro. Versão 0.5.1 para Windows, piloto aberto.">
 <meta name="theme-color" content="#121316">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="Featbox">
-<meta property="og:description" content="Ferramentas para trabalhar com IA sem perder o controle. Versão 0.5.0, piloto aberto.">
-<meta property="og:image" content="assets/og-featbox.png">
+<meta property="og:description" content="Ferramentas para trabalhar com IA sem perder o controle. Versão 0.5.1, piloto aberto.">
+<meta property="og:image" content="https://featbox.github.io/assets/og-featbox.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<link rel="icon" href="assets/marcas/featbox-t3-favicon.svg" type="image/svg+xml">
+<!-- seo:inicio -->
+<link rel="canonical" href="https://featbox.github.io/">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Renato Manduca">
+<meta property="og:url" content="https://featbox.github.io/">
+<meta property="og:site_name" content="Featbox">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image:alt" content="Marca do Featbox e o título Trabalhar com IA sem perder o controle">
+<meta name="twitter:title" content="Featbox · Trabalhar com IA sem perder o controle">
+<meta name="twitter:description" content="Ferramentas para trabalhar com IA sem perder o controle. Versão 0.5.1, piloto aberto.">
+<meta name="twitter:image" content="https://featbox.github.io/assets/og-featbox.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/marcas/featbox-t3-favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icones/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/icones/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/assets/icones/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Featbox", "applicationCategory": "ProductivityApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "0.5.1", "description": "Pacote de três apps locais para trabalhar com várias IAs sem perder o controle: notas em Markdown (FeatDesk), leitor com cadernos (FeatReader) e registro de decisões encadeado por SHA-256 (FeatRoom).", "inLanguage": "pt-BR", "url": "https://featbox.github.io/", "image": "https://featbox.github.io/assets/og-featbox.png", "author": {"@type": "Person", "name": "Renato Manduca", "address": {"@type": "PostalAddress", "addressLocality": "Garopaba", "addressRegion": "SC", "addressCountry": "BR"}}}</script>
+<!-- seo:fim -->
+<link rel="alternate" hreflang="pt-BR" href="https://featbox.github.io/">
+<link rel="alternate" hreflang="en" href="https://featbox.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://featbox.github.io/">
 <link rel="preload" href="assets/fonts/ibm-plex-sans-500.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"IBM Plex Sans";font-weight:400;font-display:swap;src:url(assets/fonts/ibm-plex-sans-400.woff2) format("woff2")}
@@ -26,7 +47,7 @@
 :root{
   --bg:#121316;--bg-2:#191A1E;--bg-3:#22242A;--blue:#191A1E;
   --text:#E9E7E0;--text-2:#A9AEBC;--text-3:#8A90A2;
-  --gold:#F07A2E;--dot:#E75700;--f:linear-gradient(135deg,#C24A00 0%,#F07A2E 45%,#FFB27A 60%,#E75700 100%);
+  --gold:#F07A2E;--dot:#E75700;--f:#E75700;
   --line:rgb(233 231 224 / .09);--line-2:rgb(233 231 224 / .18);--line-gold:rgb(231 87 0 / .38);
   
   --f-display:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
@@ -36,7 +57,7 @@
   --wrap:1160px;--pad:clamp(16px,4vw,40px);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;background:var(--bg);color-scheme:dark;scrollbar-color:#3A3C42 var(--bg)}
 body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.65 var(--f-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3,h4,p{margin:0}
 h1,h2,h3{text-wrap:balance}
@@ -47,7 +68,7 @@ img,svg{display:block;max-width:100%}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
 .skip{position:absolute;left:-999px;top:8px;z-index:200;background:var(--gold);color:var(--bg);padding:8px 12px}
 .skip:focus{left:8px}
-.foil{background:var(--f);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.foil{color:var(--dot);-webkit-text-fill-color:currentColor;font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
 @supports not ((background-clip:text) or (-webkit-background-clip:text)){.foil{color:var(--gold);-webkit-text-fill-color:currentColor}}
 .label{display:flex;align-items:center;gap:12px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
 .label b{font-weight:500;color:var(--dot)}
@@ -58,6 +79,7 @@ img,svg{display:block;max-width:100%}
 .top nav{display:none;gap:28px}
 .top nav a,.top .cta{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--text-2)}
 .top nav a:hover{color:var(--text)}
+.top nav a{white-space:nowrap}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);justify-self:center}
 .brand img{width:28px;height:28px;border-radius:7px}
 .brand span{font-weight:600;font-size:18px;letter-spacing:-.02em}
@@ -70,7 +92,7 @@ img,svg{display:block;max-width:100%}
 .btn-ghost:hover{background:var(--bg-3)}
 .btn .dot{width:7px;height:7px;border-radius:50%;background:#B8512F}
 .btn-ghost .dot{background:var(--dot)}
-.hero{position:relative;border-bottom:1px solid var(--line);background:radial-gradient(900px 560px at 82% 30%,rgb(231 87 0 / .09),transparent 70%),linear-gradient(180deg,var(--bg),#0E0F12 100%)}
+.hero{position:relative;border-bottom:1px solid var(--line);background:var(--bg)}
 .hero .wrap{display:grid;gap:40px;padding-top:72px;padding-bottom:84px;align-items:center}
 .hero .kicker{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);display:flex;gap:14px;flex-wrap:wrap}
 .hero .kicker span+span::before{content:"/";margin-right:14px;color:var(--text-3)}
@@ -111,7 +133,7 @@ img,svg{display:block;max-width:100%}
 .col h3{margin-top:18px;font-weight:500;font-size:24px;line-height:1.15;letter-spacing:-.02em}
 .col p{margin-top:10px;color:var(--text-2);font-size:16px}
 .tools{margin-top:56px;display:grid;gap:20px}
-.tool{position:relative;background:linear-gradient(180deg,var(--bg-2),var(--bg));border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s}
+.tool{position:relative;background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s}
 .tool:hover{border-color:var(--line-gold)}
 .tool .head{display:flex;justify-content:space-between;align-items:center}
 .tool .idx{font-family:var(--f-mono);font-size:13px;letter-spacing:.12em;color:var(--text-3)}
@@ -126,6 +148,10 @@ img,svg{display:block;max-width:100%}
 .tech ul{margin:16px 0 0;padding-left:18px;display:grid;gap:10px;color:var(--text-2)}
 .tech b{color:var(--text)}
 .tech code{font-family:var(--f-mono);font-size:.92em;color:var(--text)}
+.top .brand{grid-column:2}.cta-wrap{grid-column:3;justify-self:end;display:flex;align-items:center;gap:6px;white-space:nowrap}@media (max-width:480px){.top .cta{display:none}.lang{margin-left:0}}
+.lang{display:inline-flex;gap:6px;margin-left:12px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.08em}.lang a{color:var(--text-3);text-decoration:none;padding:4px 6px;border-radius:6px}.lang a[aria-current]{color:var(--text);background:var(--bg-3)}
+.feat{color:var(--dot);font:inherit;letter-spacing:inherit}
+.tool-txt{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.tool-txt h3{margin:6px 0 10px}.app-mark-lg{width:72px;height:72px;align-self:center}
 .frame.shot{display:block;aspect-ratio:auto;padding:0;background:var(--bg);overflow:hidden;margin:0}
 .frame.shot img{display:block;width:100%;height:auto;border-radius:0}
 .frame.shot .cap{display:block;padding:8px 12px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--text-3);border-top:1px solid var(--line)}
@@ -159,7 +185,7 @@ img,svg{display:block;max-width:100%}
 .ledger li.wait{color:var(--text)}
 .caret{display:inline-block;width:.6em;height:1.1em;vertical-align:-3px;background:var(--dot);margin-left:4px}
 .ledger .note{border-top:1px dashed var(--line-2);padding:10px 16px;color:var(--text-3);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
-.band{background:linear-gradient(180deg,#0A1328,var(--blue) 140%)}
+.band{background:#17181C}
 .band .col p{color:#B2B8C8}
 .state{margin-top:48px;border-top:1px solid var(--line)}
 .state div{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
@@ -168,7 +194,7 @@ img,svg{display:block;max-width:100%}
 .who{display:grid;gap:32px}
 .who h2{font-size:clamp(34px,4.4vw,56px)}
 .who p{color:var(--text-2);max-width:58ch}
-.contact{padding:128px 0 104px;text-align:center;background:radial-gradient(800px 380px at 50% 100%,rgb(231 87 0 / .08),transparent 72%)}
+.contact{padding:128px 0 104px;text-align:center;background:var(--bg)}
 .contact h2{font-size:clamp(52px,8.6vw,120px)}
 .contact p{margin:20px auto 0;max-width:44ch;color:var(--text-2)}
 .contact .actions{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
@@ -177,7 +203,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
 .js .reveal.in{opacity:1;transform:none}
 @media (min-width:860px){
-  .top nav{display:flex}
+  .top nav{display:none}
   .hero .wrap{grid-template-columns:1.15fr .85fr;padding-top:96px;padding-bottom:104px}
   .cols{grid-template-columns:repeat(3,1fr)}
   .col{border-bottom:0;border-right:1px solid var(--line);padding:36px 32px}
@@ -203,6 +229,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   .tool .frame .cap{bottom:-28px}
   .tool{padding-bottom:44px}
 }
+@media (min-width:1180px){.top nav{display:flex;gap:20px;grid-column:1}}
 </style>
 </head>
 <body>
@@ -210,15 +237,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <linearGradient id="foilg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C24A00"/><stop offset=".3" stop-color="#F07A2E"/><stop offset=".5" stop-color="#FFB27A"/><stop offset=".7" stop-color="#E75700"/><stop offset="1" stop-color="#C24A00"/></linearGradient>
+    <linearGradient id="foilg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E75700"/><stop offset="1" stop-color="#E75700"/></linearGradient>
   </defs>
 </svg>
 
 <header class="top">
   <div class="wrap">
     <nav aria-label="Seções"><a href="#proposta">Proposta</a><a href="#ferramentas">Ferramentas</a><a href="#provas">Na prática</a><a href="#estado">Estado</a><a href="#piloto">Piloto</a></nav>
-    <a class="brand" href="#topo" aria-label="Featbox, início"><img src="assets/marcas/featbox-t3-favicon.svg" alt="" width="30" height="30"><span>Featbox</span></a>
-    <a class="cta" href="#piloto">Quero testar</a>
+    <a class="brand" href="#topo" aria-label="Featbox, início"><img src="assets/marcas/featbox-t3-favicon.svg" alt="" width="30" height="30"><span><span class="feat">Feat</span>box</span></a>
+    <span class="cta-wrap"><a class="cta" href="#piloto">Quero testar</a><span class="lang"><a href="./" aria-current="page" hreflang="pt-BR">PT</a><a href="en/" hreflang="en" lang="en">EN</a></span></span>
   </div>
 </header>
 
@@ -226,9 +253,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   <section class="hero" id="topo" aria-labelledby="titulo">
     <div class="wrap">
       <div>
-        <p class="kicker"><span>Pacote de ferramentas</span><span>0.5.0 · piloto aberto</span></p>
+        <p class="kicker"><span>Pacote de ferramentas</span><span>0.5.1 · piloto aberto</span></p>
         <h1 id="titulo" class="display">Trabalhar com IA <span class="l2 foil">sem perder o controle.</span></h1>
-        <p class="lead">Featbox é um pacote de ferramentas para quem toca projetos longos com vários assistentes de IA. <strong>Cada IA com a sua função, e a última palavra é sua.</strong></p>
+        <p class="lead"><span class="feat">Feat</span>box é um pacote de ferramentas para quem toca projetos longos com vários assistentes de IA. <strong>Cada IA com a sua função, e a última palavra é sua.</strong></p>
         <div class="actions">
           <a class="btn btn-primary" href="#ferramentas"><span class="dot"></span>Ver as ferramentas</a>
           <a class="btn btn-ghost" href="#piloto">Quero testar</a>
@@ -254,7 +281,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="wrap">
       <p class="label"><b>[01]</b> A proposta</p>
       <h2 id="t-proposta" class="display reveal">Método antes <span class="foil">de ferramenta.</span></h2>
-      <p class="lead reveal">IA sem processo é automação de bagunça. O Featbox parte de três princípios e as ferramentas existem para cumpri-los.</p>
+      <p class="lead reveal">IA sem processo é automação de bagunça. O <span class="feat">Feat</span>box parte de três princípios e as ferramentas existem para cumpri-los.</p>
       <div class="cols">
         <div class="col reveal"><span class="num foil">01</span><h3>Uma função para cada IA</h3><p>Cada assistente faz o que faz melhor: planejar, pesquisar, revisar. O contexto do projeto é o mesmo para todos.</p></div>
         <div class="col reveal"><span class="num foil">02</span><h3>A decisão é humana</h3><p>A IA propõe, pesquisa e executa. O que vira regra passa pela aprovação da pessoa e fica registrado com data e fonte.</p></div>
@@ -267,28 +294,28 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="wrap">
       <p class="label"><b>[02]</b> As ferramentas</p>
       <h2 id="t-ferramentas" class="display reveal">Três ferramentas, <span class="foil">um mesmo jeito de trabalhar.</span></h2>
-      <p class="lead reveal">Os nomes seguem uma regra simples: Feat + a função. As telas abaixo são da versão 0.5.0 instalada, com dados de demonstração.</p>
+      <p class="lead reveal">Os nomes seguem uma regra simples: Feat + a função. As telas abaixo são da versão 0.5.1 instalada, com dados de demonstração.</p>
       <div class="tools">
         <article class="tool reveal" aria-labelledby="t-desk">
-          <div class="head"><span class="idx">FB/01</span><span class="badge">0.5.0</span></div>
-          <figure class="frame shot"><img src="assets/telas/featdesk.webp" alt="FeatDesk com cinco notas de demonstração, filtros por estado e a lista das alteradas por último" width="1400" height="907" loading="lazy"><figcaption class="cap">Tela real · 0.5.0 · dados de demonstração</figcaption></figure>
-          <span class="role">A mesa de trabalho</span>
-          <h3 id="t-desk"><img class="app-mark" src="assets/marcas/featdesk.svg" alt="" width="28" height="28">FeatDesk</h3>
-          <p>Notas em Markdown numa pasta sua, em três estados: captura, bancada e arquivo. Busca em tudo, e o app não acessa a internet.</p>
+          <div class="head"><span class="idx">FB/01</span><span class="badge">0.5.1</span></div>
+          <figure class="frame shot"><img src="assets/telas/featdesk.webp" alt="FeatDesk com cinco notas de demonstração, filtros por estado e a lista das alteradas por último" width="1400" height="907" loading="lazy"><figcaption class="cap">Tela real · 0.5.1 · dados de demonstração</figcaption></figure>
+          <div class="tool-txt"><div><span class="role">A mesa de trabalho</span>
+          <h3 id="t-desk"><span class="feat">Feat</span>Desk</h3>
+          <p>Notas em Markdown numa pasta sua, em três estados: captura, bancada e arquivo. Busca em tudo, e o app não acessa a internet.</p></div><img class="app-mark-lg" src="assets/marcas/featdesk.svg" alt="" width="72" height="72"></div>
         </article>
         <article class="tool reveal" aria-labelledby="t-reader">
-          <div class="head"><span class="idx">FB/02</span><span class="badge">0.5.0</span></div>
-          <figure class="frame shot"><img src="assets/telas/featreader.webp" alt="FeatReader na pasta de notas, pronto para abrir um documento e criar o caderno dele" width="1400" height="907" loading="lazy"><figcaption class="cap">Tela real · 0.5.0 · dados de demonstração</figcaption></figure>
-          <span class="role">O leitor</span>
-          <h3 id="t-reader"><img class="app-mark" src="assets/marcas/featreader.svg" alt="" width="28" height="28">FeatReader</h3>
-          <p>Lê md, txt, pdf e docx. Cada documento ganha um caderno com destaques, notas e áudio, e a leitura em voz é feita no seu computador. Grátis.</p>
+          <div class="head"><span class="idx">FB/02</span><span class="badge">0.5.1</span></div>
+          <figure class="frame shot"><img src="assets/telas/featreader.webp" alt="FeatReader na pasta de notas, pronto para abrir um documento e criar o caderno dele" width="1400" height="907" loading="lazy"><figcaption class="cap">Tela real · 0.5.1 · dados de demonstração</figcaption></figure>
+          <div class="tool-txt"><div><span class="role">O leitor</span>
+          <h3 id="t-reader"><span class="feat">Feat</span>Reader</h3>
+          <p>Lê md, txt, pdf e docx. Cada documento ganha um caderno com destaques, notas e áudio, e a leitura em voz é feita no seu computador. Grátis.</p></div><img class="app-mark-lg" src="assets/marcas/featreader.svg" alt="" width="72" height="72"></div>
         </article>
         <article class="tool reveal" aria-labelledby="t-room">
-          <div class="head"><span class="idx">FB/03</span><span class="badge">0.5.0</span></div>
-          <figure class="frame shot"><img src="assets/telas/featroom-eventos.webp" alt="FeatRoom com a cadeia pessoal: um pedido de decisão, uma aprovação e uma recusa, e o selo de cadeia íntegra" width="1245" height="612" loading="lazy"><figcaption class="cap">Tela real · 0.5.0 · dados de demonstração</figcaption></figure>
-          <span class="role">A sala das decisões</span>
-          <h3 id="t-room"><img class="app-mark" src="assets/marcas/featroom.svg" alt="" width="28" height="28">FeatRoom</h3>
-          <p>Cada pedido, aprovação e recusa entra numa cadeia com hash: dá para provar o que foi decidido e quando. Uma cadeia pessoal e uma por projeto.</p>
+          <div class="head"><span class="idx">FB/03</span><span class="badge">0.5.1</span></div>
+          <figure class="frame shot"><img src="assets/telas/featroom-eventos.webp" alt="FeatRoom com a cadeia pessoal: um pedido de decisão, uma aprovação e uma recusa, e o selo de cadeia íntegra" width="1245" height="612" loading="lazy"><figcaption class="cap">Tela real · 0.5.1 · dados de demonstração</figcaption></figure>
+          <div class="tool-txt"><div><span class="role">A sala das decisões</span>
+          <h3 id="t-room"><span class="feat">Feat</span>Room</h3>
+          <p>Cada pedido, aprovação e recusa entra numa cadeia com hash: dá para provar o que foi decidido e quando. Uma cadeia pessoal e uma por projeto.</p></div><img class="app-mark-lg" src="assets/marcas/featroom.svg" alt="" width="72" height="72"></div>
         </article>
       </div>
     </div>
@@ -319,7 +346,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <div class="wrap">
         <p class="label"><b>[04]</b> Como é construído</p>
         <h2 id="t-como" class="display reveal">O mesmo critério <span class="foil">que o produto defende.</span></h2>
-        <p class="lead reveal">O Featbox é feito com IA e com uma pessoa aprovando o que importa.</p>
+        <p class="lead reveal">O <span class="feat">Feat</span>box é feito com IA e com uma pessoa aprovando o que importa.</p>
         <div class="cols">
           <div class="col reveal"><span class="num foil">01</span><h3>Testado e documentado</h3><p>Nada é chamado de pronto sem testes automatizados e sem o registro do porquê de cada decisão.</p></div>
           <div class="col reveal"><span class="num foil">02</span><h3>Decisões escritas</h3><p>Arquitetura, decisões e testes ficam escritos em cada projeto.</p></div>
@@ -336,25 +363,25 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <h2 id="t-provas" class="display reveal">O que já dá <span class="foil">para mostrar.</span></h2>
       <p class="lead reveal">Aqui só entra o que funciona e dá para conferir, ou o que foi medido. O que ainda é hipótese fica de fora.</p>
       <div class="proofs">
-        <article class="proof reveal"><span class="badge">demonstrado</span><h3>Nada sai do seu computador.</h3><p>Nenhuma função usa IA de nuvem nesta versão, e a tela Sobre de cada app declara isso. O FeatDesk bloqueia qualquer conexão de rede. O modelo de linguagem do FeatRoom é opcional, vem desligado e só aceita um modelo rodando no próprio PC.</p></article>
+        <article class="proof reveal"><span class="badge">demonstrado</span><h3>Nada sai do seu computador.</h3><p>Nenhuma função usa IA de nuvem nesta versão, e a tela Sobre de cada app declara isso. O <span class="feat">Feat</span>Desk bloqueia qualquer conexão de rede. O modelo de linguagem do <span class="feat">Feat</span>Room é opcional, vem desligado e só aceita um modelo rodando no próprio PC.</p></article>
         <article class="proof reveal"><span class="badge">demonstrado</span><h3>Só vira regra o que você aprova.</h3><p>A IA registra um pedido de decisão; você aprova ou recusa. Cada tipo de evento tem sua cor, e a recusa fica registrada tanto quanto a aprovação.</p></article>
         <article class="proof reveal"><span class="badge">demonstrado</span><h3>Histórico que não se apaga.</h3><p>Cada evento guarda o SHA-256 do anterior, num arquivo que só cresce. O app confere a cadeia e mostra "cadeia íntegra". Se alguém mexer num registro antigo, a conferência acusa.</p></article>
         <article class="proof reveal"><span class="badge">demonstrado</span><h3>O porquê fica junto do código.</h3><p>Cada módulo do projeto tem uma ficha curta do que faz. Quando entra código novo depois dela, o selo muda de "em dia" para "desatualizada", e você sabe em que a IA não deve mais confiar.</p></article>
         <article class="proof reveal"><span class="badge">medido</span><h3>Quanto custa trabalhar com IA.</h3><p>Numa semana real de trabalho (17 a 23/10/2026): cerca de 650 milhões de tokens em 33 sessões. Em média, a IA relia 380 mil tokens a cada resposta. O custo maior vem de conversa longa, não de código.</p><span class="src">medidor de custos em teste; entra no pacote</span></article>
-        <article class="proof reveal"><span class="badge">medido</span><h3>Testado antes de chamar de pronto.</h3><p>42 testes no FeatDesk, 48 no FeatReader e 4 da cadeia do FeatRoom, mais um teste de cada app já instalado. Arquivos em formatos abertos: se o Featbox sumir amanhã, suas notas continuam abrindo.</p></article>
+        <article class="proof reveal"><span class="badge">medido</span><h3>Testado antes de chamar de pronto.</h3><p>42 testes no <span class="feat">Feat</span>Desk, 48 no <span class="feat">Feat</span>Reader e 4 da cadeia do <span class="feat">Feat</span>Room, mais um teste de cada app já instalado. Arquivos em formatos abertos: se o <span class="feat">Feat</span>box sumir amanhã, suas notas continuam abrindo.</p></article>
       </div>
-      <figure class="frame shot proof-shot reveal"><img src="assets/telas/featroom-fichas.webp" alt="FeatRoom mostrando as fichas de três módulos de um site: duas em dia e uma desatualizada porque entrou código depois dela" width="1245" height="911" loading="lazy"><figcaption class="cap">Tela real · fichas de módulo de um projeto de demonstração · caminhos de pasta ocultados</figcaption></figure>
+      <figure class="frame shot proof-shot reveal"><img src="assets/telas/featroom-fichas.webp" alt="FeatRoom mostrando as fichas de três módulos de um site: duas em dia e uma desatualizada porque entrou código depois dela" width="927" height="630" loading="lazy"><figcaption class="cap">Tela real · fichas de módulo de um projeto de demonstração · caminhos de pasta ocultados · tela da 0.5.0</figcaption></figure>
       <details class="tech reveal">
         <summary>Por dentro, para quem é técnico</summary>
         <ul>
           <li><b>Apps:</b> Electron, um processo por app, cada um com seus dados, trava de instância única e ícone na bandeja. Instalação por usuário, sem administrador.</li>
           <li><b>Isolamento:</b> contextIsolation ligado, nodeIntegration desligado, sandbox ligado, CSP <code>default-src 'none'</code>. A interface não toca o disco: tudo passa por IPC validado.</li>
-          <li><b>Rede:</b> o FeatDesk bloqueia http(s) e ws na sessão; links abrem no navegador do sistema. Nenhuma função usa IA de nuvem nesta versão.</li>
+          <li><b>Rede:</b> o <span class="feat">Feat</span>Desk bloqueia http(s) e ws na sessão; links abrem no navegador do sistema. Nenhuma função usa IA de nuvem nesta versão.</li>
           <li><b>Registro de decisões:</b> <code>eventos.jsonl</code>, só acrescenta. Cada evento guarda o SHA-256 do anterior; o app recalcula a cadeia e mostra se está íntegra. Tipos: pedido, aprovação, recusa, mensagem, execução.</li>
           <li><b>Várias IAs:</b> o registro é um arquivo de texto aberto dentro da pasta do projeto. Qualquer assistente que trabalhe no projeto lê o mesmo contexto e registra no mesmo formato; nenhum provedor recebe o projeto inteiro.</li>
           <li><b>Fichas de módulo:</b> uma ficha curta por módulo, gerada a partir do código e ligada a um commit. Se entra um evento de execução depois dela, o selo vira "desatualizada".</li>
           <li><b>Modelo local:</b> opcional, desligado por padrão, só em localhost (servidor compatível com a API da OpenAI, como o LM Studio).</li>
-          <li><b>Testes:</b> 42 (FeatDesk), 48 (FeatReader), 4 da cadeia (FeatRoom) e teste de fumaça de cada app instalado.</li>
+          <li><b>Testes:</b> 42 (<span class="feat">Feat</span>Desk), 48 (<span class="feat">Feat</span>Reader), 4 da cadeia (<span class="feat">Feat</span>Room) e teste de fumaça de cada app instalado.</li>
         </ul>
       </details>
     </div>
@@ -364,11 +391,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="wrap">
       <p class="label"><b>[06]</b> Estado atual</p>
       <h2 id="t-estado" class="display reveal">O que existe <span class="foil">e o que ainda não.</span></h2>
-      <p class="lead reveal">Sem promessa além do que está de pé. Versão 0.5.0 para Windows, instalação por usuário, sem pedir administrador. Quando algo mudar de estado, muda aqui.</p>
+      <p class="lead reveal">Sem promessa além do que está de pé. Versão 0.5.1 para Windows, instalação por usuário, sem pedir administrador. Quando algo mudar de estado, muda aqui.</p>
       <div class="state">
-        <div><span><span class="t">FeatReader</span><span class="s">Leitor com cadernos, destaques, notas e leitura em voz · grátis</span></span><span class="badge">0.5.0 · avaliação</span></div>
-        <div><span><span class="t">FeatDesk</span><span class="s">Notas em Markdown numa pasta sua, sem rede · pacote pago</span></span><span class="badge">0.5.0 · avaliação</span></div>
-        <div><span><span class="t">FeatRoom</span><span class="s">Cadeia verificável de decisões e fichas de módulo · pacote pago</span></span><span class="badge">0.5.0 · avaliação</span></div>
+        <div><span><span class="t"><span class="feat">Feat</span>Reader</span><span class="s">Leitor com cadernos, destaques, notas e leitura em voz · grátis</span></span><span class="badge">0.5.1 · avaliação</span></div>
+        <div><span><span class="t"><span class="feat">Feat</span>Desk</span><span class="s">Notas em Markdown numa pasta sua, sem rede · pacote pago</span></span><span class="badge">0.5.1 · avaliação</span></div>
+        <div><span><span class="t"><span class="feat">Feat</span>Room</span><span class="s">Cadeia verificável de decisões e fichas de módulo · pacote pago</span></span><span class="badge">0.5.1 · avaliação</span></div>
         <div><span><span class="t">Memória local e "Perguntar ao projeto"</span><span class="s">Busca no seu projeto com um modelo rodando no PC</span></span><span class="badge">Em desenvolvimento</span></div>
         <div><span><span class="t">Preço e licença definitiva</span><span class="s">No piloto tudo fica liberado; o preço se define com quem usar</span></span><span class="badge">Depois do piloto</span></div>
       </div>
@@ -390,7 +417,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="wrap">
       <p class="label"><b>[08]</b> Piloto</p>
       <h2 id="t-piloto" class="display reveal">Procuro 5 pessoas <span class="foil">por 2 semanas.</span></h2>
-      <p class="lead reveal">Quero saber se o Featbox serve para alguém além de mim. O piloto responde isso melhor do que qualquer texto desta página.</p>
+      <p class="lead reveal">Quero saber se o <span class="feat">Feat</span>box serve para alguém além de mim. O piloto responde isso melhor do que qualquer texto desta página.</p>
       <div class="pilot">
         <div class="reveal"><h3>Para quem</h3><ul><li>Toca um projeto longo: livro, produto, pesquisa, negócio.</li><li>Usa mais de um assistente de IA, ou quer usar.</li><li>Tem um PC com Windows 10 ou 11.</li></ul></div>
         <div class="reveal"><h3>O que você recebe</h3><ul><li>Os três apps, com tudo liberado durante o piloto.</li><li>20 minutos no começo, para instalar junto.</li><li>Ajuda direta comigo quando travar.</li></ul></div>
@@ -407,7 +434,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="wrap">
       <p class="label" style="justify-content:center"><b>[09]</b> Contato</p>
       <h2 id="t-contato" class="display foil" style="margin-top:24px">Vamos conversar.</h2>
-      <p>Para parceiros, investidores e quem quer acompanhar o Featbox.</p>
+      <p>Para parceiros, investidores e quem quer acompanhar o <span class="feat">Feat</span>box.</p>
       <div class="actions">
         <a class="btn btn-primary" href="mailto:featbox.company@gmail.com"><span class="dot"></span>E-mail</a>
         <a class="btn btn-ghost" href="https://linkedin.com/in/renatomanduca" rel="noopener">LinkedIn</a>
@@ -416,7 +443,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     </div>
   </section>
 </main>
-<footer><div class="wrap"><span>Featbox · Renato Manduca · Garopaba, SC</span><span>© 2026</span></div></footer>
+<footer><div class="wrap"><span><span class="feat">Feat</span>box · Renato Manduca · Garopaba, SC</span><span>© 2026</span></div></footer>
 <script>
 // raios do tesserato (linha fina, só decoração)
 (function(){var g=document.getElementById('rays');if(!g)return;var ns='http://www.w3.org/2000/svg';

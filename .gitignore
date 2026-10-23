@@ -6,3 +6,8 @@
 !/.nojekyll
 !/assets/
 /assets/logos-v8/
+!/en/
+!/robots.txt
+!/sitemap.xml
+!/site.webmanifest
+!/favicon.ico
