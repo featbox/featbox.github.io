@@ -1,0 +1,8 @@
+# Só a página vai para o repositório
+/*
+!/index.html
+!/README.md
+!/.gitignore
+!/.nojekyll
+!/assets/
+/assets/logos-v8/

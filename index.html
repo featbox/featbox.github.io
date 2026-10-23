@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Featbox · Trabalhar com IA sem perder o controle</title>
+<meta name="description" content="Featbox: FeatDesk, FeatReader e FeatRoom. Cada IA com uma função, toda decisão registrada e aprovada pela pessoa, nenhum provedor com acesso ao projeto inteiro. Versão 0.5.0 para Windows, piloto aberto.">
+<meta name="theme-color" content="#121316">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Featbox">
+<meta property="og:description" content="Ferramentas para trabalhar com IA sem perder o controle. Versão 0.5.0, piloto aberto.">
+<meta property="og:image" content="assets/og-featbox.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<link rel="icon" href="assets/marcas/featbox-t3-favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/ibm-plex-sans-500.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"IBM Plex Sans";font-weight:400;font-display:swap;src:url(assets/fonts/ibm-plex-sans-400.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-weight:500;font-display:swap;src:url(assets/fonts/ibm-plex-sans-500.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-weight:600;font-display:swap;src:url(assets/fonts/ibm-plex-sans-600.woff2) format("woff2")}
+@font-face{font-family:"Literata";font-weight:200 900;font-style:normal;font-display:swap;src:url(assets/fonts/literata-var.woff2) format("woff2")}
+@font-face{font-family:"Literata";font-weight:200 900;font-style:italic;font-display:swap;src:url(assets/fonts/literata-italic-var.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;font-display:swap;src:url(assets/fonts/ibm-plex-mono-400.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;font-display:swap;src:url(assets/fonts/ibm-plex-mono-500.woff2) format("woff2")}
+:root{
+  --bg:#121316;--bg-2:#191A1E;--bg-3:#22242A;--blue:#191A1E;
+  --text:#E9E7E0;--text-2:#A9AEBC;--text-3:#8A90A2;
+  --gold:#F07A2E;--dot:#E75700;--f:linear-gradient(135deg,#C24A00 0%,#F07A2E 45%,#FFB27A 60%,#E75700 100%);
+  --line:rgb(233 231 224 / .09);--line-2:rgb(233 231 224 / .18);--line-gold:rgb(231 87 0 / .38);
+  
+  --f-display:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-serif:"Literata",Georgia,serif;
+  --f-sans:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --wrap:1160px;--pad:clamp(16px,4vw,40px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.65 var(--f-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+a{color:var(--gold)}
+img,svg{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.skip{position:absolute;left:-999px;top:8px;z-index:200;background:var(--gold);color:var(--bg);padding:8px 12px}
+.skip:focus{left:8px}
+.foil{background:var(--f);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+@supports not ((background-clip:text) or (-webkit-background-clip:text)){.foil{color:var(--gold);-webkit-text-fill-color:currentColor}}
+.label{display:flex;align-items:center;gap:12px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
+.label b{font-weight:500;color:var(--dot)}
+.label::after{content:"";flex:1;height:1px;background:var(--line-2)}
+.display{font-family:var(--f-display);font-weight:500;line-height:1.02;letter-spacing:-.035em}
+.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:60px}
+.top nav{display:none;gap:28px}
+.top nav a,.top .cta{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--text-2)}
+.top nav a:hover{color:var(--text)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);justify-self:center}
+.brand img{width:28px;height:28px;border-radius:7px}
+.brand span{font-weight:600;font-size:18px;letter-spacing:-.02em}
+.top .cta{justify-self:end;border:1px solid var(--line-gold);border-radius:999px;padding:7px 16px;color:var(--gold)}
+.top .cta:hover{background:var(--bg-3)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:999px;font-family:var(--f-sans);font-size:15px;font-weight:500;text-decoration:none;border:1px solid var(--gold);transition:background-color .2s,filter .2s}
+.btn-primary{background:var(--f);color:var(--bg)}
+.btn-primary:hover{filter:brightness(1.07)}
+.btn-ghost{color:var(--gold);background:transparent}
+.btn-ghost:hover{background:var(--bg-3)}
+.btn .dot{width:7px;height:7px;border-radius:50%;background:#B8512F}
+.btn-ghost .dot{background:var(--dot)}
+.hero{position:relative;border-bottom:1px solid var(--line);background:radial-gradient(900px 560px at 82% 30%,rgb(231 87 0 / .09),transparent 70%),linear-gradient(180deg,var(--bg),#0E0F12 100%)}
+.hero .wrap{display:grid;gap:40px;padding-top:72px;padding-bottom:84px;align-items:center}
+.hero .kicker{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);display:flex;gap:14px;flex-wrap:wrap}
+.hero .kicker span+span::before{content:"/";margin-right:14px;color:var(--text-3)}
+.hero h1{margin-top:24px;font-size:clamp(40px,6vw,84px);line-height:1}
+.hero h1 .l2{display:block;margin-top:.08em}
+.display.foil{font-weight:400}
+.hero .lead{margin-top:28px;max-width:46ch;font-size:19px;color:var(--text-2)}
+.hero .lead strong{color:var(--text);font-weight:500}
+.hero .actions{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px}
+.art{position:relative;aspect-ratio:1;width:100%;max-width:520px;justify-self:center}
+.art svg{width:100%;height:100%}
+.art .orbit,.art .orbit2{transform-origin:50% 50%}
+.art{position:relative}
+.t3-palco{position:absolute;inset:0;perspective:1100px;transform-style:preserve-3d;pointer-events:none}
+.t3-palco .t3{position:absolute;inset:0;width:100%;height:100%;transform-style:preserve-3d;backface-visibility:visible}
+.t3-palco .t3{will-change:transform}
+.t3-fatia{position:absolute;inset:0;width:100%;height:100%}
+.t3-9{animation:giro9 18s cubic-bezier(.65,0,.35,1) infinite}
+.t3-6{animation:giro6 13s cubic-bezier(.65,0,.35,1) infinite}
+.t3-3{animation:giro3 9s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes giro9{0%,22%{transform:rotateY(0)}78%,100%{transform:rotateY(360deg)}}
+@keyframes giro6{0%,18%{transform:rotateX(0)}82%,100%{transform:rotateX(-360deg)}}
+@keyframes giro3{0%,15%{transform:rotate3d(1,1,0,0deg)}85%,100%{transform:rotate3d(1,1,0,360deg)}}
+.t3-nucleo{transform-box:fill-box;transform-origin:center;animation:pulso 2.6s ease-in-out infinite;filter:drop-shadow(0 0 0 rgb(231 87 0 / 0))}
+@keyframes pulso{0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 rgb(231 87 0 / 0))}50%{transform:scale(1.18);filter:drop-shadow(0 0 14px rgb(231 87 0 / .55))}}
+@media (prefers-reduced-motion:reduce){.t3-palco .t3,.t3-nucleo{animation:none}}
+
+.ticker{border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;background:var(--bg)}
+.ticker div{display:inline-flex;gap:48px;padding:14px 0}
+.ticker span{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-2);display:inline-flex;gap:48px;align-items:center}
+.ticker span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--dot)}
+.section{padding:112px 0;border-bottom:1px solid var(--line);scroll-margin-top:60px}
+.section h2{margin-top:28px;font-size:clamp(38px,5.4vw,72px)}
+.section .lead{margin-top:22px;max-width:58ch;font-size:18px;color:var(--text-2)}
+.cols{display:grid;gap:0;margin-top:56px;border-top:1px solid var(--line)}
+.col{padding:32px 28px 32px 0;border-bottom:1px solid var(--line)}
+.col .num{font-family:var(--f-serif);font-style:italic;font-weight:300;font-size:56px;line-height:1;display:block}
+.col h3{margin-top:18px;font-weight:500;font-size:24px;line-height:1.15;letter-spacing:-.02em}
+.col p{margin-top:10px;color:var(--text-2);font-size:16px}
+.tools{margin-top:56px;display:grid;gap:20px}
+.tool{position:relative;background:linear-gradient(180deg,var(--bg-2),var(--bg));border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s}
+.tool:hover{border-color:var(--line-gold)}
+.tool .head{display:flex;justify-content:space-between;align-items:center}
+.tool .idx{font-family:var(--f-mono);font-size:13px;letter-spacing:.12em;color:var(--text-3)}
+.badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line-gold);border-radius:999px;padding:3px 11px}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--dot)}
+.frame{aspect-ratio:16/10;border-radius:12px;background-color:var(--bg);border:1px solid var(--line-gold);display:grid;place-content:center;justify-items:center;gap:10px;position:relative;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px;background-position:-1px -1px}
+.frame img{width:72px;height:72px;border-radius:16px}
+.app-mark{width:28px;height:28px;vertical-align:-4px;margin-right:10px}
+.tech{margin-top:32px;max-width:820px;border:1px solid var(--line-2);border-radius:16px;padding:18px 22px;background:var(--bg-2)}
+.tech summary{cursor:pointer;font-family:var(--f-mono);font-size:14px;letter-spacing:.06em;color:var(--gold)}
+.tech ul{margin:16px 0 0;padding-left:18px;display:grid;gap:10px;color:var(--text-2)}
+.tech b{color:var(--text)}
+.tech code{font-family:var(--f-mono);font-size:.92em;color:var(--text)}
+.frame.shot{display:block;aspect-ratio:auto;padding:0;background:var(--bg);overflow:hidden;margin:0}
+.frame.shot img{display:block;width:100%;height:auto;border-radius:0}
+.frame.shot .cap{display:block;padding:8px 12px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--text-3);border-top:1px solid var(--line)}
+.proofs{margin-top:48px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.proof{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.proof h3{margin:0;font-size:19px;line-height:1.3}
+.proof p{margin:0;color:var(--text-2)}
+.proof .src{font-family:var(--f-mono);font-size:12.5px;color:var(--text-3)}
+.proof-shot{margin:40px 0 0;max-width:820px}
+.pilot{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:40px}
+.pilot div{border:1px solid var(--line-gold);border-radius:16px;padding:22px}
+.pilot h3{margin:0 0 8px;font-size:18px}
+.pilot p,.pilot li{color:var(--text-2);margin:0}
+.pilot ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.frame.mock{display:block;aspect-ratio:auto;padding:0;background:none;border:0;overflow:visible}
+.frame.mock svg{width:100%;height:auto;border-radius:12px;box-shadow:0 18px 40px -22px rgb(0 0 0 / .9)}
+.frame .cap{position:absolute;left:12px;bottom:-26px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;color:var(--text-3)}
+.tool .frame.mock{margin-bottom:22px}
+.tool h3{font-weight:600;font-size:30px;line-height:1;letter-spacing:-.03em}
+.tool .role{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.tool p{color:var(--text-2);font-size:16px}
+.ledger-wrap{display:grid;gap:40px;align-items:center}
+.ledger{background:var(--bg-2);border:1px solid var(--line-gold);border-radius:14px;font-family:var(--f-mono);font-size:14px;overflow:hidden}
+.ledger .bar{display:flex;justify-content:space-between;gap:12px;padding:10px 16px;border-bottom:1px solid var(--line);color:var(--text-3);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase}
+.ledger .bar i{font-style:normal;display:inline-flex;gap:6px}
+.ledger .bar i::before{content:"";width:8px;height:8px;border:1px solid var(--gold);border-radius:50%}
+.ledger ol{list-style:none;margin:0;padding:18px 16px 22px;display:grid;gap:12px}
+.ledger li{display:grid;grid-template-columns:110px 1fr;gap:12px;color:var(--text-2)}
+.ledger li .st{color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;font-size:12.5px;padding-top:2px}
+.ledger li.ok .st{color:var(--dot)}
+.ledger li.wait{color:var(--text)}
+.caret{display:inline-block;width:.6em;height:1.1em;vertical-align:-3px;background:var(--dot);margin-left:4px}
+.ledger .note{border-top:1px dashed var(--line-2);padding:10px 16px;color:var(--text-3);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
+.band{background:linear-gradient(180deg,#0A1328,var(--blue) 140%)}
+.band .col p{color:#B2B8C8}
+.state{margin-top:48px;border-top:1px solid var(--line)}
+.state div{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.state .t{font-weight:600;font-size:22px;letter-spacing:-.02em;line-height:1.1}
+.state .s{display:block;margin-top:4px;font-size:15px;color:var(--text-2)}
+.who{display:grid;gap:32px}
+.who h2{font-size:clamp(34px,4.4vw,56px)}
+.who p{color:var(--text-2);max-width:58ch}
+.contact{padding:128px 0 104px;text-align:center;background:radial-gradient(800px 380px at 50% 100%,rgb(231 87 0 / .08),transparent 72%)}
+.contact h2{font-size:clamp(52px,8.6vw,120px)}
+.contact p{margin:20px auto 0;max-width:44ch;color:var(--text-2)}
+.contact .actions{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+footer{border-top:1px solid var(--line);padding:28px 0 40px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (min-width:860px){
+  .top nav{display:flex}
+  .hero .wrap{grid-template-columns:1.15fr .85fr;padding-top:96px;padding-bottom:104px}
+  .cols{grid-template-columns:repeat(3,1fr)}
+  .col{border-bottom:0;border-right:1px solid var(--line);padding:36px 32px}
+  .col:first-child{padding-left:0}.col:last-child{border-right:0}
+  .tools{grid-template-columns:repeat(3,1fr)}
+  .ledger-wrap{grid-template-columns:.9fr 1.1fr}
+  .who{grid-template-columns:1.1fr .9fr;align-items:end}
+}
+@media (max-width:520px){.ledger li{grid-template-columns:1fr;gap:2px}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;scroll-behavior:auto!important}
+  .js .reveal{opacity:1;transform:none}
+}
+
+@media(min-width:900px){
+  .tools{grid-template-columns:1fr;gap:28px}
+  .tool{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);grid-template-areas:"frame ." "frame head" "frame role" "frame title" "frame text" "frame .";grid-template-rows:1fr auto auto auto auto 1fr;column-gap:48px;row-gap:14px;padding:32px}
+  .tool .frame{grid-area:frame;align-self:center;margin-bottom:0}
+  .tool .head{grid-area:head;align-self:end}
+  .tool .role{grid-area:role}.tool h3{grid-area:title}.tool p{grid-area:text}
+  .tool:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);grid-template-areas:". frame" "head frame" "role frame" "title frame" "text frame" ". frame"}
+  .tool h3{font-size:36px}.tool p{font-size:17px}
+  .tool .frame .cap{bottom:-28px}
+  .tool{padding-bottom:44px}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.className='js'</script>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="foilg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C24A00"/><stop offset=".3" stop-color="#F07A2E"/><stop offset=".5" stop-color="#FFB27A"/><stop offset=".7" stop-color="#E75700"/><stop offset="1" stop-color="#C24A00"/></linearGradient>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <nav aria-label="Seções"><a href="#proposta">Proposta</a><a href="#ferramentas">Ferramentas</a><a href="#provas">Na prática</a><a href="#estado">Estado</a><a href="#piloto">Piloto</a></nav>
+    <a class="brand" href="#topo" aria-label="Featbox, início"><img src="assets/marcas/featbox-t3-favicon.svg" alt="" width="30" height="30"><span>Featbox</span></a>
+    <a class="cta" href="#piloto">Quero testar</a>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="hero" id="topo" aria-labelledby="titulo">
+    <div class="wrap">
+      <div>
+        <p class="kicker"><span>Pacote de ferramentas</span><span>0.5.0 · piloto aberto</span></p>
+        <h1 id="titulo" class="display">Trabalhar com IA <span class="l2 foil">sem perder o controle.</span></h1>
+        <p class="lead">Featbox é um pacote de ferramentas para quem toca projetos longos com vários assistentes de IA. <strong>Cada IA com a sua função, e a última palavra é sua.</strong></p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#ferramentas"><span class="dot"></span>Ver as ferramentas</a>
+          <a class="btn btn-ghost" href="#piloto">Quero testar</a>
+        </div>
+      </div>
+      <figure class="art" style="margin:0" aria-hidden="true">
+        <svg viewBox="0 0 520 520" fill="none" stroke="url(#foilg)">
+          <g class="orbit2" stroke-width="1" opacity=".5"><circle cx="260" cy="260" r="250" stroke-dasharray="2 10"/></g>
+          <g class="orbit" stroke-width="1.2" opacity=".8"><circle cx="260" cy="260" r="228"/><circle cx="260" cy="32" r="5" fill="#E75700" stroke="none"/></g>
+          <g stroke-width="1" opacity=".55" id="rays"></g>
+        </svg>
+        <div class="t3-palco"><div class="t3 t3-9"><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#3A1A08" style="transform:translateZ(-12px)" aria-hidden="true"><polygon points="260.0,84.1 373.0,125.2 433.2,229.4 412.2,347.8 320.2,425.2 199.8,425.2 107.8,347.8 86.8,229.4 147.0,125.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#3A1A08" style="transform:translateZ(-10px)" aria-hidden="true"><polygon points="260.0,84.1 373.0,125.2 433.2,229.4 412.2,347.8 320.2,425.2 199.8,425.2 107.8,347.8 86.8,229.4 147.0,125.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#3A1A08" style="transform:translateZ(-8px)" aria-hidden="true"><polygon points="260.0,84.1 373.0,125.2 433.2,229.4 412.2,347.8 320.2,425.2 199.8,425.2 107.8,347.8 86.8,229.4 147.0,125.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#3A1A08" style="transform:translateZ(-6px)" aria-hidden="true"><polygon points="260.0,84.1 373.0,125.2 433.2,229.4 412.2,347.8 320.2,425.2 199.8,425.2 107.8,347.8 86.8,229.4 147.0,125.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#7A3204" style="transform:translateZ(-4px)" aria-hidden="true"><polygon points="260.0,84.1 373.0,125.2 433.2,229.4 412.2,347.8 320.2,425.2 199.8,425.2 107.8,347.8 86.8,229.4 147.0,125.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#7A3204" style="transform:translateZ(-2px)" aria-hidden="true"><polygon points="260.0,84.1 373.0,125.2 433.2,229.4 412.2,347.8 320.2,425.2 199.8,425.2 107.8,347.8 86.8,229.4 147.0,125.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="url(#foilg)" style="transform:translateZ(0px)" aria-hidden="true"><polygon points="260.0,84.1 373.0,125.2 433.2,229.4 412.2,347.8 320.2,425.2 199.8,425.2 107.8,347.8 86.8,229.4 147.0,125.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg></div><div class="t3 t3-6"><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#3A1A08" style="transform:translateZ(-12px)" aria-hidden="true"><polygon points="260.0,134.0 369.2,197.0 369.2,323.0 260.0,386.0 150.8,323.0 150.8,197.0" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#3A1A08" style="transform:translateZ(-10px)" aria-hidden="true"><polygon points="260.0,134.0 369.2,197.0 369.2,323.0 260.0,386.0 150.8,323.0 150.8,197.0" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#3A1A08" style="transform:translateZ(-8px)" aria-hidden="true"><polygon points="260.0,134.0 369.2,197.0 369.2,323.0 260.0,386.0 150.8,323.0 150.8,197.0" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#3A1A08" style="transform:translateZ(-6px)" aria-hidden="true"><polygon points="260.0,134.0 369.2,197.0 369.2,323.0 260.0,386.0 150.8,323.0 150.8,197.0" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#7A3204" style="transform:translateZ(-4px)" aria-hidden="true"><polygon points="260.0,134.0 369.2,197.0 369.2,323.0 260.0,386.0 150.8,323.0 150.8,197.0" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#7A3204" style="transform:translateZ(-2px)" aria-hidden="true"><polygon points="260.0,134.0 369.2,197.0 369.2,323.0 260.0,386.0 150.8,323.0 150.8,197.0" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="url(#foilg)" style="transform:translateZ(0px)" aria-hidden="true"><polygon points="260.0,134.0 369.2,197.0 369.2,323.0 260.0,386.0 150.8,323.0 150.8,197.0" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg></div><div class="t3 t3-3"><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#3A1A08" style="transform:translateZ(-12px)" aria-hidden="true"><polygon points="260.0,179.5 329.7,300.2 190.4,300.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#3A1A08" style="transform:translateZ(-10px)" aria-hidden="true"><polygon points="260.0,179.5 329.7,300.2 190.4,300.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#3A1A08" style="transform:translateZ(-8px)" aria-hidden="true"><polygon points="260.0,179.5 329.7,300.2 190.4,300.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#3A1A08" style="transform:translateZ(-6px)" aria-hidden="true"><polygon points="260.0,179.5 329.7,300.2 190.4,300.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#7A3204" style="transform:translateZ(-4px)" aria-hidden="true"><polygon points="260.0,179.5 329.7,300.2 190.4,300.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="#7A3204" style="transform:translateZ(-2px)" aria-hidden="true"><polygon points="260.0,179.5 329.7,300.2 190.4,300.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg><svg class="t3-fatia" viewBox="0 0 520 520" fill="none" stroke="url(#foilg)" style="transform:translateZ(0px)" aria-hidden="true"><polygon points="260.0,179.5 329.7,300.2 190.4,300.2" stroke-width="7" stroke-linejoin="miter" stroke-miterlimit="8"/></svg></div><svg class="t3 t3-eixo" viewBox="0 0 520 520" aria-hidden="true"><circle class="t3-nucleo" cx="260" cy="260" r="19" fill="#E75700"/></svg></div>
+      </figure>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div>
+    <span>Uma função para cada IA</span><span>A decisão é humana</span><span>Nenhum provedor vê tudo</span><span>Testado e documentado</span><span>Método antes de ferramenta</span>
+    <span>Uma função para cada IA</span><span>A decisão é humana</span><span>Nenhum provedor vê tudo</span><span>Testado e documentado</span><span>Método antes de ferramenta</span>
+  </div></div>
+
+  <section class="section" id="proposta" aria-labelledby="t-proposta">
+    <div class="wrap">
+      <p class="label"><b>[01]</b> A proposta</p>
+      <h2 id="t-proposta" class="display reveal">Método antes <span class="foil">de ferramenta.</span></h2>
+      <p class="lead reveal">IA sem processo é automação de bagunça. O Featbox parte de três princípios e as ferramentas existem para cumpri-los.</p>
+      <div class="cols">
+        <div class="col reveal"><span class="num foil">01</span><h3>Uma função para cada IA</h3><p>Cada assistente faz o que faz melhor: planejar, pesquisar, revisar. O contexto do projeto é o mesmo para todos.</p></div>
+        <div class="col reveal"><span class="num foil">02</span><h3>A decisão é humana</h3><p>A IA propõe, pesquisa e executa. O que vira regra passa pela aprovação da pessoa e fica registrado com data e fonte.</p></div>
+        <div class="col reveal"><span class="num foil">03</span><h3>Nenhum provedor vê tudo</h3><p>Cada provedor recebe só o que a sua função pede. O projeto completo fica com você, em arquivos seus.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ferramentas" aria-labelledby="t-ferramentas">
+    <div class="wrap">
+      <p class="label"><b>[02]</b> As ferramentas</p>
+      <h2 id="t-ferramentas" class="display reveal">Três ferramentas, <span class="foil">um mesmo jeito de trabalhar.</span></h2>
+      <p class="lead reveal">Os nomes seguem uma regra simples: Feat + a função. As telas abaixo são da versão 0.5.0 instalada, com dados de demonstração.</p>
+      <div class="tools">
+        <article class="tool reveal" aria-labelledby="t-desk">
+          <div class="head"><span class="idx">FB/01</span><span class="badge">0.5.0</span></div>
+          <figure class="frame shot"><img src="assets/telas/featdesk.webp" alt="FeatDesk com cinco notas de demonstração, filtros por estado e a lista das alteradas por último" width="1400" height="907" loading="lazy"><figcaption class="cap">Tela real · 0.5.0 · dados de demonstração</figcaption></figure>
+          <span class="role">A mesa de trabalho</span>
+          <h3 id="t-desk"><img class="app-mark" src="assets/marcas/featdesk.svg" alt="" width="28" height="28">FeatDesk</h3>
+          <p>Notas em Markdown numa pasta sua, em três estados: captura, bancada e arquivo. Busca em tudo, e o app não acessa a internet.</p>
+        </article>
+        <article class="tool reveal" aria-labelledby="t-reader">
+          <div class="head"><span class="idx">FB/02</span><span class="badge">0.5.0</span></div>
+          <figure class="frame shot"><img src="assets/telas/featreader.webp" alt="FeatReader na pasta de notas, pronto para abrir um documento e criar o caderno dele" width="1400" height="907" loading="lazy"><figcaption class="cap">Tela real · 0.5.0 · dados de demonstração</figcaption></figure>
+          <span class="role">O leitor</span>
+          <h3 id="t-reader"><img class="app-mark" src="assets/marcas/featreader.svg" alt="" width="28" height="28">FeatReader</h3>
+          <p>Lê md, txt, pdf e docx. Cada documento ganha um caderno com destaques, notas e áudio, e a leitura em voz é feita no seu computador. Grátis.</p>
+        </article>
+        <article class="tool reveal" aria-labelledby="t-room">
+          <div class="head"><span class="idx">FB/03</span><span class="badge">0.5.0</span></div>
+          <figure class="frame shot"><img src="assets/telas/featroom-eventos.webp" alt="FeatRoom com a cadeia pessoal: um pedido de decisão, uma aprovação e uma recusa, e o selo de cadeia íntegra" width="1245" height="612" loading="lazy"><figcaption class="cap">Tela real · 0.5.0 · dados de demonstração</figcaption></figure>
+          <span class="role">A sala das decisões</span>
+          <h3 id="t-room"><img class="app-mark" src="assets/marcas/featroom.svg" alt="" width="28" height="28">FeatRoom</h3>
+          <p>Cada pedido, aprovação e recusa entra numa cadeia com hash: dá para provar o que foi decidido e quando. Uma cadeia pessoal e uma por projeto.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="decisao" aria-labelledby="t-decisao">
+    <div class="wrap ledger-wrap">
+      <div>
+        <p class="label"><b>[03]</b> Como uma decisão anda</p>
+        <h2 id="t-decisao" class="display reveal">A IA propõe. <span class="foil">Você decide.</span></h2>
+        <p class="lead reveal">Ao lado, uma ilustração do caminho de uma proposta até virar regra.</p>
+      </div>
+      <figure class="ledger reveal" style="margin:0" aria-label="Ilustração do caminho de uma decisão: proposta, revisão, aguardando aprovação e aprovada">
+        <div class="bar"><span>registro · projeto</span><i>ilustração</i></div>
+        <ol>
+          <li><span class="st">proposta</span><span>uma IA sugere uma mudança, com a fonte</span></li>
+          <li><span class="st">revisão</span><span>outra IA, com outra função, revisa a proposta</span></li>
+          <li class="wait"><span class="st">aguardando</span><span>você aprova ou recusa<span class="caret" aria-hidden="true"></span></span></li>
+          <li class="ok"><span class="st">aprovada</span><span>vira regra, com data e fonte registradas</span></li>
+        </ol>
+        <figcaption class="note">ilustração do princípio, não é uma tela do produto</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="band">
+    <section class="section" id="como" aria-labelledby="t-como">
+      <div class="wrap">
+        <p class="label"><b>[04]</b> Como é construído</p>
+        <h2 id="t-como" class="display reveal">O mesmo critério <span class="foil">que o produto defende.</span></h2>
+        <p class="lead reveal">O Featbox é feito com IA e com uma pessoa aprovando o que importa.</p>
+        <div class="cols">
+          <div class="col reveal"><span class="num foil">01</span><h3>Testado e documentado</h3><p>Nada é chamado de pronto sem testes automatizados e sem o registro do porquê de cada decisão.</p></div>
+          <div class="col reveal"><span class="num foil">02</span><h3>Decisões escritas</h3><p>Arquitetura, decisões e testes ficam escritos em cada projeto.</p></div>
+          <div class="col reveal"><span class="num foil">03</span><h3>Vitrine aberta, código privado</h3><p>Esta página e a documentação de apresentação são públicas. O código continua privado.</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <section class="section" id="provas" aria-labelledby="t-provas">
+    <div class="wrap">
+      <p class="label"><b>[05]</b> Na prática</p>
+      <h2 id="t-provas" class="display reveal">O que já dá <span class="foil">para mostrar.</span></h2>
+      <p class="lead reveal">Aqui só entra o que funciona e dá para conferir, ou o que foi medido. O que ainda é hipótese fica de fora.</p>
+      <div class="proofs">
+        <article class="proof reveal"><span class="badge">demonstrado</span><h3>Nada sai do seu computador.</h3><p>Nenhuma função usa IA de nuvem nesta versão, e a tela Sobre de cada app declara isso. O FeatDesk bloqueia qualquer conexão de rede. O modelo de linguagem do FeatRoom é opcional, vem desligado e só aceita um modelo rodando no próprio PC.</p></article>
+        <article class="proof reveal"><span class="badge">demonstrado</span><h3>Só vira regra o que você aprova.</h3><p>A IA registra um pedido de decisão; você aprova ou recusa. Cada tipo de evento tem sua cor, e a recusa fica registrada tanto quanto a aprovação.</p></article>
+        <article class="proof reveal"><span class="badge">demonstrado</span><h3>Histórico que não se apaga.</h3><p>Cada evento guarda o SHA-256 do anterior, num arquivo que só cresce. O app confere a cadeia e mostra "cadeia íntegra". Se alguém mexer num registro antigo, a conferência acusa.</p></article>
+        <article class="proof reveal"><span class="badge">demonstrado</span><h3>O porquê fica junto do código.</h3><p>Cada módulo do projeto tem uma ficha curta do que faz. Quando entra código novo depois dela, o selo muda de "em dia" para "desatualizada", e você sabe em que a IA não deve mais confiar.</p></article>
+        <article class="proof reveal"><span class="badge">medido</span><h3>Quanto custa trabalhar com IA.</h3><p>Numa semana real de trabalho (17 a 23/10/2026): cerca de 650 milhões de tokens em 33 sessões. Em média, a IA relia 380 mil tokens a cada resposta. O custo maior vem de conversa longa, não de código.</p><span class="src">medidor de custos em teste; entra no pacote</span></article>
+        <article class="proof reveal"><span class="badge">medido</span><h3>Testado antes de chamar de pronto.</h3><p>42 testes no FeatDesk, 48 no FeatReader e 4 da cadeia do FeatRoom, mais um teste de cada app já instalado. Arquivos em formatos abertos: se o Featbox sumir amanhã, suas notas continuam abrindo.</p></article>
+      </div>
+      <figure class="frame shot proof-shot reveal"><img src="assets/telas/featroom-fichas.webp" alt="FeatRoom mostrando as fichas de três módulos de um site: duas em dia e uma desatualizada porque entrou código depois dela" width="1245" height="911" loading="lazy"><figcaption class="cap">Tela real · fichas de módulo de um projeto de demonstração · caminhos de pasta ocultados</figcaption></figure>
+      <details class="tech reveal">
+        <summary>Por dentro, para quem é técnico</summary>
+        <ul>
+          <li><b>Apps:</b> Electron, um processo por app, cada um com seus dados, trava de instância única e ícone na bandeja. Instalação por usuário, sem administrador.</li>
+          <li><b>Isolamento:</b> contextIsolation ligado, nodeIntegration desligado, sandbox ligado, CSP <code>default-src 'none'</code>. A interface não toca o disco: tudo passa por IPC validado.</li>
+          <li><b>Rede:</b> o FeatDesk bloqueia http(s) e ws na sessão; links abrem no navegador do sistema. Nenhuma função usa IA de nuvem nesta versão.</li>
+          <li><b>Registro de decisões:</b> <code>eventos.jsonl</code>, só acrescenta. Cada evento guarda o SHA-256 do anterior; o app recalcula a cadeia e mostra se está íntegra. Tipos: pedido, aprovação, recusa, mensagem, execução.</li>
+          <li><b>Várias IAs:</b> o registro é um arquivo de texto aberto dentro da pasta do projeto. Qualquer assistente que trabalhe no projeto lê o mesmo contexto e registra no mesmo formato; nenhum provedor recebe o projeto inteiro.</li>
+          <li><b>Fichas de módulo:</b> uma ficha curta por módulo, gerada a partir do código e ligada a um commit. Se entra um evento de execução depois dela, o selo vira "desatualizada".</li>
+          <li><b>Modelo local:</b> opcional, desligado por padrão, só em localhost (servidor compatível com a API da OpenAI, como o LM Studio).</li>
+          <li><b>Testes:</b> 42 (FeatDesk), 48 (FeatReader), 4 da cadeia (FeatRoom) e teste de fumaça de cada app instalado.</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="estado" aria-labelledby="t-estado">
+    <div class="wrap">
+      <p class="label"><b>[06]</b> Estado atual</p>
+      <h2 id="t-estado" class="display reveal">O que existe <span class="foil">e o que ainda não.</span></h2>
+      <p class="lead reveal">Sem promessa além do que está de pé. Versão 0.5.0 para Windows, instalação por usuário, sem pedir administrador. Quando algo mudar de estado, muda aqui.</p>
+      <div class="state">
+        <div><span><span class="t">FeatReader</span><span class="s">Leitor com cadernos, destaques, notas e leitura em voz · grátis</span></span><span class="badge">0.5.0 · avaliação</span></div>
+        <div><span><span class="t">FeatDesk</span><span class="s">Notas em Markdown numa pasta sua, sem rede · pacote pago</span></span><span class="badge">0.5.0 · avaliação</span></div>
+        <div><span><span class="t">FeatRoom</span><span class="s">Cadeia verificável de decisões e fichas de módulo · pacote pago</span></span><span class="badge">0.5.0 · avaliação</span></div>
+        <div><span><span class="t">Memória local e "Perguntar ao projeto"</span><span class="s">Busca no seu projeto com um modelo rodando no PC</span></span><span class="badge">Em desenvolvimento</span></div>
+        <div><span><span class="t">Preço e licença definitiva</span><span class="s">No piloto tudo fica liberado; o preço se define com quem usar</span></span><span class="badge">Depois do piloto</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="quem" aria-labelledby="t-quem">
+    <div class="wrap">
+      <p class="label"><b>[07]</b> Quem constrói</p>
+      <div class="who" style="margin-top:28px">
+        <h2 id="t-quem" class="display reveal" style="margin:0">Quem constrói <span class="foil">conhece a operação por dentro.</span></h2>
+        <p class="reveal">Renato Manduca, de Garopaba, SC. Mais de uma década dentro de operações, do balcão à gestão de equipes inteiras: salão, bar, cozinha, equipe e caixa. Foi daí que veio o critério para o software que constrói hoje: define o que precisa existir, conduz os agentes de IA que constroem e só chama de pronto o que passou nos testes.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="piloto" aria-labelledby="t-piloto">
+    <div class="wrap">
+      <p class="label"><b>[08]</b> Piloto</p>
+      <h2 id="t-piloto" class="display reveal">Procuro 5 pessoas <span class="foil">por 2 semanas.</span></h2>
+      <p class="lead reveal">Quero saber se o Featbox serve para alguém além de mim. O piloto responde isso melhor do que qualquer texto desta página.</p>
+      <div class="pilot">
+        <div class="reveal"><h3>Para quem</h3><ul><li>Toca um projeto longo: livro, produto, pesquisa, negócio.</li><li>Usa mais de um assistente de IA, ou quer usar.</li><li>Tem um PC com Windows 10 ou 11.</li></ul></div>
+        <div class="reveal"><h3>O que você recebe</h3><ul><li>Os três apps, com tudo liberado durante o piloto.</li><li>20 minutos no começo, para instalar junto.</li><li>Ajuda direta comigo quando travar.</li></ul></div>
+        <div class="reveal"><h3>O que eu peço</h3><ul><li>Usar no seu projeto de verdade por 2 semanas.</li><li>Contar o que travou, sem rodeio.</li><li>20 minutos de conversa no fim.</li></ul></div>
+      </div>
+      <div class="actions" style="margin-top:32px">
+        <a class="btn btn-primary" href="mailto:featbox.company@gmail.com?subject=Quero%20participar%20do%20piloto%20Featbox&amp;body=Nome%3A%0AProjeto%20em%20que%20usaria%3A%0AQuais%20IAs%20usa%20hoje%3A%0AWindows%2010%20ou%2011%3F%0AMelhor%20hor%C3%A1rio%20para%2020%20minutos%3A%0A"><span class="dot"></span>Quero participar</a>
+      </div>
+      <p class="note" style="margin-top:14px;color:var(--text-3)">Seus dados ficam só no e-mail, para combinar o piloto. Nada é vendido nem repassado.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contato" aria-labelledby="t-contato">
+    <div class="wrap">
+      <p class="label" style="justify-content:center"><b>[09]</b> Contato</p>
+      <h2 id="t-contato" class="display foil" style="margin-top:24px">Vamos conversar.</h2>
+      <p>Para parceiros, investidores e quem quer acompanhar o Featbox.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:featbox.company@gmail.com"><span class="dot"></span>E-mail</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/renatomanduca" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://x.com/RenatoManduca" rel="noopener">X</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>Featbox · Renato Manduca · Garopaba, SC</span><span>© 2026</span></div></footer>
+<script>
+// raios do tesserato (linha fina, só decoração)
+(function(){var g=document.getElementById('rays');if(!g)return;var ns='http://www.w3.org/2000/svg';
+for(var i=0;i<48;i++){var a=i/48*Math.PI*2,l=document.createElementNS(ns,'line');
+l.setAttribute('x1',260+Math.cos(a)*60);l.setAttribute('y1',260+Math.sin(a)*60);
+l.setAttribute('x2',260+Math.cos(a)*(i%2?205:222));l.setAttribute('y2',260+Math.sin(a)*(i%2?205:222));g.appendChild(l);}})();
+// movimento lento: órbitas, faixa e cursor (desligado com "reduzir movimento")
+(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var o1=document.querySelector('.art .orbit'),o2=document.querySelector('.art .orbit2'),tk=document.querySelector('.ticker div'),c=document.querySelector('.caret'),t0=Date.now(),hov=false;if(tk&&tk.parentNode)tk.parentNode.addEventListener('mouseenter',function(){hov=true}),tk.parentNode.addEventListener('mouseleave',function(){hov=false});
+setInterval(function(){if(hov){t0+=50;}var t=(Date.now()-t0)/1000;
+if(o1)o1.style.transform='rotate('+(t*3)%360+'deg)';if(o2)o2.style.transform='rotate('+(-t*2)%360+'deg)';
+if(tk)tk.style.transform='translateX(-'+((t*20)%(tk.scrollWidth/2))+'px)';
+if(c)c.style.opacity=(Math.floor(t/0.55)%2)?'0':'1';},50);})();
+// entrada ao rolar
+(function(){var els=document.querySelectorAll('.reveal');
+if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{rootMargin:'0px 0px -8% 0px'});
+els.forEach(function(e){io.observe(e)});})();
+</script>
+</body>
+</html>
+
+
