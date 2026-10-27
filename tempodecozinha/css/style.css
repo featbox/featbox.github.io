@@ -142,4 +142,4 @@ font-family:var(--fs);--z:linear-gradient(-45deg,transparent 8px,var(--cream) 0)
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 /* Mantém a faixa inclinada dentro da largura da tela. */
-body { overflow-x: clip; }
+html, body { overflow-x: clip; }
