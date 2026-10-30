@@ -7,6 +7,7 @@
 !/assets/
 /assets/logos-v8/
 !/en/
+!/demo/
 !/manduca/
 !/manduca/**
 !/robots.txt

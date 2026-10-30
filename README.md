@@ -2,17 +2,17 @@
 
 # Featbox™
 
-**Trabalhar com IA sem perder o controle.**
+**Troque de IA. Continue o projeto.**
 
 Esta é a página pública da Featbox. O código dos aplicativos é privado; este repositório contém a apresentação do produto.
 
-Quando um projeto cresce, as conversas se acumulam, os arquivos se espalham e decisões importantes acabam esquecidas. A Featbox reúne três ferramentas para Windows que ajudam a ler, organizar e acompanhar o trabalho com IA.
+Featbox reúne propostas, decisões e motivos para ajudar quem alterna entre assistentes a continuar um projeto. Revise o contexto e escolha o que compartilhar. A entrada do piloto é o Room; Reader e Desk apoiam leitura e notas.
 
 | App | Para que serve | Plano |
 |---|---|---|
 | **FeatReader** | Ler documentos, fazer destaques e guardar notas e áudios em cadernos | Grátis |
 | **FeatDesk** | Escrever e organizar notas em uma pasta sua | Pacote pago |
-| **FeatRoom** | Registrar propostas, aprovações e recusas e conferir o histórico | Pacote pago |
+| **FeatRoom** | Decidir sobre propostas e versões de arquivos; preparar contexto selecionado | Em avaliação |
 
 Durante o piloto, os três apps ficam liberados.
 
@@ -20,9 +20,9 @@ As notas e os registros ficam no seu computador. Você decide o que compartilhar
 
 ## Estado
 
-Versão **0.5.3**, em avaliação para Windows 10 e 11. Memória local, perguntas ao projeto e medidor de uso estão em desenvolvimento ou teste. Preço e licença definitiva serão definidos depois do piloto.
+Reader/Desk **0.5.3**; Room **0.6.0-rc.1**. O novo Room foi testado no código e no executável neste PC de desenvolvimento. Falta validar a distribuição num Windows limpo antes dos pilotos externos. Preço e licença comercial ainda estão em definição.
 
-As capturas do site foram feitas com os aplicativos em execução a partir do código em desenvolvimento (0.5.3), usando dados fictícios e a identidade atual. Elas não substituem a validação do instalador em um PC limpo.
+As capturas usam dados fictícios e a identidade atual. O Room mostra o executável RC; Reader/Desk mostram o código em desenvolvimento 0.5.3. A [demo interativa](https://featbox.github.io/demo/) ilustra o fluxo no navegador; não acessa arquivos reais nem conecta IAs.
 
 ## Identidade
 
@@ -30,7 +30,7 @@ Featbox: quadrado em perspectiva. Featbox Suite: composição de eneágono, hex�
 
 ## Piloto
 
-Procuro 5 pessoas que toquem um projeto longo com IA para usar as ferramentas por 2 semanas. Inclui apoio na instalação e contato direto para relatar o que funciona e o que atrapalha.
+Cinco profissionais independentes que entreguem um projeto digital a um cliente e já alternem entre duas IAs. Piloto inicial de 14 dias sem cobrança: configuração de 30 minutos, primeiro contexto revisado e revisão de 20 minutos ao final. Mediremos retomada, clareza e vontade de continuar; ainda não há resultado comprovado de economia.
 
 Inscrição: [featbox.company@gmail.com](mailto:featbox.company@gmail.com?subject=Quero%20participar%20do%20piloto%20Featbox).
 
@@ -38,7 +38,7 @@ Inscrição: [featbox.company@gmail.com](mailto:featbox.company@gmail.com?subjec
 
 ## Quem constrói
 
-Renato Manduca, Garopaba (SC). Mais de uma década em operação de restaurante antes do software. Construo com IA e com uma pessoa aprovando o que importa.
+Renato Manduca, Garopaba (SC). Mais de uma década de experiência, da operação de linha de frente à gestão de negócios inteiros. Essa visão orienta ferramentas para organizar o trabalho, tomar decisões e dar continuidade aos projetos com IA.
 
 ---
 
