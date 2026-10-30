@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Featbox · Work with AI without losing control</title>
-<meta name="description" content="Featbox: FeatDesk, FeatReader and FeatRoom. Every AI with a role, every decision logged and approved by a person, no provider with access to the whole project. Version 0.5.3 for Windows, waitlist.">
+<meta name="description" content="FeatReader, FeatDesk and FeatRoom: read documents, organize notes and track decisions in projects with AI. Version 0.5.3 in evaluation for Windows. Join the pilot waitlist.">
 <meta name="theme-color" content="#121316">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
@@ -25,12 +25,12 @@
 <meta name="twitter:description" content="Tools to work with AI without losing control. Version 0.5.3, waitlist.">
 <meta name="twitter:image" content="https://featbox.github.io/assets/og-featbox.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/assets/marcas/featbox-t3-favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/marcas/featbox.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/icones/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/assets/icones/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/icones/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Featbox", "applicationCategory": "ProductivityApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "0.5.3", "description": "A suite of three local apps for working with several AIs without losing control: Markdown notes (FeatDesk), a reader with notebooks (FeatReader) and a SHA-256 hash-chained decision log (FeatRoom).", "inLanguage": "en", "url": "https://featbox.github.io/en/", "image": "https://featbox.github.io/assets/og-featbox.png", "author": {"@type": "Person", "name": "Renato Manduca", "address": {"@type": "PostalAddress", "addressLocality": "Garopaba", "addressRegion": "SC", "addressCountry": "BR"}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Featbox", "applicationCategory": "ProductivityApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "0.5.3", "description": "Three tools for Windows: reading and annotations (FeatReader), note organization (FeatDesk) and decision history (FeatRoom). Version 0.5.3 in evaluation.", "inLanguage": "en", "url": "https://featbox.github.io/en/", "image": "https://featbox.github.io/assets/og-featbox.png", "author": {"@type": "Person", "name": "Renato Manduca", "address": {"@type": "PostalAddress", "addressLocality": "Garopaba", "addressRegion": "SC", "addressCountry": "BR"}}}</script>
 <!-- seo:fim -->
 <link rel="alternate" hreflang="pt-BR" href="https://featbox.github.io/">
 <link rel="alternate" hreflang="en" href="https://featbox.github.io/en/">
@@ -151,10 +151,10 @@ img,svg{display:block;max-width:100%}
 .top .brand{grid-column:2}.cta-wrap{grid-column:3;justify-self:end;display:flex;align-items:center;gap:6px;white-space:nowrap}@media (max-width:480px){.top .cta{display:none}.lang{margin-left:0}}
 .lang{display:inline-flex;gap:6px;margin-left:12px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.08em}.lang a{color:var(--text-3);text-decoration:none;padding:4px 6px;border-radius:6px}.lang a[aria-current]{color:var(--text);background:var(--bg-3)}
 .feat{color:var(--dot);font:inherit;letter-spacing:inherit}
-.tool-txt{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.tool-txt h3{margin:6px 0 10px}.app-mark-lg{width:72px;height:72px;align-self:center}
+.tool-txt{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}.tool-txt h3{margin:6px 0 10px}.app-mark-lg{width:112px;height:112px;align-self:center;justify-self:end;display:block}@media(max-width:640px){.tool-txt{grid-template-columns:minmax(0,1fr) 84px;gap:8px 14px}.tool-txt>div{display:contents}.tool-txt .role{grid-column:1;grid-row:1}.tool-txt h3{grid-column:1;grid-row:2;font-size:clamp(24px,7vw,30px)}.tool-txt p{grid-column:1/-1;grid-row:3}.app-mark-lg{width:84px;height:84px;max-width:none;grid-column:2;grid-row:1/3}}
 .frame.shot{display:block;aspect-ratio:auto;padding:0;background:var(--bg);overflow:hidden;margin:0}
 .frame.shot img{display:block;width:100%;height:auto;border-radius:0}
-.frame.shot .cap{display:block;padding:8px 12px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--text-3);border-top:1px solid var(--line)}
+.frame.shot .cap{position:static;display:block;padding:8px 12px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--text-3);border-top:1px solid var(--line)}
 .proofs{margin-top:48px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 .proof{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
 .proof h3{margin:0;font-size:19px;line-height:1.3}
@@ -222,7 +222,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   .tools{grid-template-columns:1fr;gap:28px}
   .tool{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);grid-template-areas:"frame ." "frame head" "frame role" "frame title" "frame text" "frame .";grid-template-rows:1fr auto auto auto auto 1fr;column-gap:48px;row-gap:14px;padding:32px}
   .tool .frame{grid-area:frame;align-self:center;margin-bottom:0}
-  .tool .head{grid-area:head;align-self:end}
+  .tool .head{grid-column:2;grid-row:2;align-self:end}.tool-txt{grid-column:2;grid-row:3/6;min-width:0}.tool:nth-child(even) .head,.tool:nth-child(even) .tool-txt{grid-column:1}
   .tool .role{grid-area:role}.tool h3{grid-area:title}.tool p{grid-area:text}
   .tool:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);grid-template-areas:". frame" "head frame" "role frame" "title frame" "text frame" ". frame"}
   .tool h3{font-size:36px}.tool p{font-size:17px}
@@ -244,7 +244,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 <header class="top">
   <div class="wrap">
     <nav aria-label="Seções"><a href="#proposta">Approach</a><a href="#ferramentas">Tools</a><a href="#provas">In practice</a><a href="#estado">Status</a><a href="#piloto">Pilot</a></nav>
-    <a class="brand" href="#topo" aria-label="Featbox, home"><img src="../assets/marcas/featbox-t3-favicon.svg" alt="" width="30" height="30"><span><span class="feat">Feat</span>box</span></a>
+    <a class="brand" href="#topo" aria-label="Featbox, home"><img src="../assets/marcas/featbox.svg" alt="" width="30" height="30"><span><span class="feat">Feat</span>box</span></a>
     <span class="cta-wrap"><a class="cta" href="#piloto">Try it</a><span class="lang"><a href="../" hreflang="pt-BR" lang="pt-BR">PT</a><a href="./" aria-current="page" hreflang="en">EN</a></span></span>
   </div>
 </header>
@@ -255,7 +255,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <div>
         <p class="kicker"><span>Tool suite</span><span>0.5.3 · waitlist</span></p>
         <h1 id="titulo" class="display">Work with AI <span class="l2 foil">without losing control.</span></h1>
-        <p class="lead"><span class="feat">Feat</span>box is a suite of tools for people running long projects with several AI assistants. <strong>Every AI has its role, and you have the final word.</strong></p>
+        <p class="lead">Conversations pile up, files scatter and it gets hard to remember why something changed. <span class="feat">Feat</span>box brings together three tools to read, organize and track decisions in projects with AI. <strong>Every AI has its role, and you have the final word.</strong></p>
         <div class="actions">
           <a class="btn btn-primary" href="#ferramentas"><span class="dot"></span>See the tools</a>
           <a class="btn btn-ghost" href="#piloto">Try it</a>
@@ -273,8 +273,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   </section>
 
   <div class="ticker" aria-hidden="true"><div>
-    <span>One role for each AI</span><span>Humans decide</span><span>No provider sees everything</span><span>Tested and documented</span><span>Method before tools</span>
-    <span>One role for each AI</span><span>Humans decide</span><span>No provider sees everything</span><span>Tested and documented</span><span>Method before tools</span>
+    <span>One role for each AI</span><span>Humans decide</span><span>You choose what to share</span><span>Tested and documented</span><span>Method before tools</span>
+    <span>One role for each AI</span><span>Humans decide</span><span>You choose what to share</span><span>Tested and documented</span><span>Method before tools</span>
   </div></div>
 
   <section class="section" id="proposta" aria-labelledby="t-proposta">
@@ -285,7 +285,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <div class="cols">
         <div class="col reveal"><span class="num foil">01</span><h3>One role for each AI</h3><p>Each assistant does what it does best: planning, research, review. The project context is the same for all of them.</p></div>
         <div class="col reveal"><span class="num foil">02</span><h3>Humans decide</h3><p>The AI proposes, researches and executes. What becomes a rule goes through a person's approval and is recorded with date and source.</p></div>
-        <div class="col reveal"><span class="num foil">03</span><h3>No provider sees everything</h3><p>Each provider gets only what its role needs. The full project stays with you, in your own files.</p></div>
+        <div class="col reveal"><span class="num foil">03</span><h3>You choose what to share</h3><p>Your project stays in files on your computer. When working with an assistant, you choose which information to share.</p></div>
       </div>
     </div>
   </section>
@@ -294,28 +294,28 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="wrap">
       <p class="label"><b>[02]</b> The tools</p>
       <h2 id="t-ferramentas" class="display reveal">Three tools, <span class="foil">one way of working.</span></h2>
-      <p class="lead reveal">The names follow a simple rule: Feat + the job. The screens below are demo captures; installer is 0.5.3, with demo data.</p>
+      <p class="lead reveal">Start with reading, organize your work and track decisions. These captures show version 0.5.3 with demo data; the symbols alongside them show the current identity.</p>
       <div class="tools">
-        <article class="tool reveal" aria-labelledby="t-desk">
-          <div class="head"><span class="idx">FB/01</span><span class="badge">0.5.3</span></div>
-          <figure class="frame shot"><img src="../assets/telas/featdesk.webp" alt="FeatDesk with five demo notes, filters by state and the recently edited list" width="1400" height="886" loading="lazy"><figcaption class="cap">Real screen · demo data · 0.5.3</figcaption></figure>
-          <div class="tool-txt"><div><span class="role">The workbench</span>
-          <h3 id="t-desk"><span class="feat">Feat</span>Desk</h3>
-          <p>Markdown notes in a folder you own, in three states: Research, Work and Export. Search everything; the app never touches the internet.</p></div><img class="app-mark-lg" src="../assets/marcas/featdesk.svg" alt="" width="72" height="72"></div>
-        </article>
         <article class="tool reveal" aria-labelledby="t-reader">
-          <div class="head"><span class="idx">FB/02</span><span class="badge">0.5.3</span></div>
-          <figure class="frame shot"><img src="../assets/telas/featreader.webp" alt="FeatReader on the notes folder, ready to open a document and create its notebook" width="1400" height="886" loading="lazy"><figcaption class="cap">Real screen · demo data · 0.5.3</figcaption></figure>
+          <div class="head"><span class="idx">FB/01</span><span class="badge">0.5.3</span></div>
+          <figure class="frame shot"><img src="../assets/telas/featreader.webp" alt="FeatReader on the notes folder, ready to open a document and create its notebook" width="1400" height="886" loading="lazy"><figcaption class="cap">Version 0.5.3 capture · demo data · previous identity</figcaption></figure>
           <div class="tool-txt"><div><span class="role">The reader</span>
           <h3 id="t-reader"><span class="feat">Feat</span>Reader</h3>
-          <p>Reads md, txt, pdf and docx. Each document gets a notebook with highlights, notes and audio, and text-to-speech runs on your computer. Free.</p></div><img class="app-mark-lg" src="../assets/marcas/featreader.svg" alt="" width="72" height="72"></div>
+          <p>Read documents, highlight passages and save notes and audio in each document’s notebook. Opens md, txt, pdf and docx, with text-to-speech on your computer. Free.</p></div><img class="app-mark-lg" src="../assets/marcas/featreader.svg" alt="" width="112" height="112"></div>
+        </article>
+        <article class="tool reveal" aria-labelledby="t-desk">
+          <div class="head"><span class="idx">FB/02</span><span class="badge">0.5.3</span></div>
+          <figure class="frame shot"><img src="../assets/telas/featdesk.webp" alt="FeatDesk with five demo notes, filters by state and the recently edited list" width="1400" height="886" loading="lazy"><figcaption class="cap">Version 0.5.3 capture · demo data · previous identity</figcaption></figure>
+          <div class="tool-txt"><div><span class="role">The workbench</span>
+          <h3 id="t-desk"><span class="feat">Feat</span>Desk</h3>
+          <p>Write and find your notes in a folder on your computer. Organize work into Research, Work and Export. Your files remain yours and open in other editors.</p></div><img class="app-mark-lg" src="../assets/marcas/featdesk.svg" alt="" width="112" height="112"></div>
         </article>
         <article class="tool reveal" aria-labelledby="t-room">
           <div class="head"><span class="idx">FB/03</span><span class="badge">0.5.3</span></div>
-          <figure class="frame shot"><img src="../assets/telas/featroom-eventos.webp" alt="FeatRoom with the personal chain: a decision request, an approval and a rejection, and the chain-intact badge" width="1228" height="903" loading="lazy"><figcaption class="cap">Real screen · demo data · 0.5.3</figcaption></figure>
+          <figure class="frame shot"><img src="../assets/telas/featroom-eventos.webp" alt="FeatRoom with the personal chain: a decision request, an approval and a rejection, and the chain-intact badge" width="1228" height="903" loading="lazy"><figcaption class="cap">Version 0.5.3 capture · demo data · previous identity</figcaption></figure>
           <div class="tool-txt"><div><span class="role">The decision room</span>
           <h3 id="t-room"><span class="feat">Feat</span>Room</h3>
-          <p>Every request, approval and rejection goes into a hash chain: you can prove what was decided and when. One personal chain and one per project.</p></div><img class="app-mark-lg" src="../assets/marcas/featroom.svg" alt="" width="72" height="72"></div>
+          <p>Record proposals, approvals and rejections so you can revisit the reasons behind each decision. Browse your personal or project history and check record integrity.</p></div><img class="app-mark-lg" src="../assets/marcas/featroom.svg" alt="" width="112" height="112"></div>
         </article>
       </div>
     </div>
@@ -361,27 +361,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="wrap">
       <p class="label"><b>[05]</b> In practice</p>
       <h2 id="t-provas" class="display reveal">What we can <span class="foil">already show.</span></h2>
-      <p class="lead reveal">Only what works and can be checked, or what was measured, goes here. Anything still a hypothesis stays out.</p>
+      <p class="lead reveal">See what the demo screens show and what you will be able to evaluate during the pilot.</p>
       <div class="proofs">
-        <article class="proof reveal"><span class="badge">demonstrated</span><h3>Nothing leaves your computer.</h3><p>No feature uses cloud AI in this version, and each app's About screen says so. <span class="feat">Feat</span>Desk blocks every network connection. <span class="feat">Feat</span>Room's language model is optional, off by default, and only accepts a model running on your own PC.</p></article>
+        <article class="proof reveal"><span class="badge">demonstrated</span><h3>A folder you own as the starting point.</h3><p>Documents, notes and records stay on your computer. Version 0.5.3 is presented for local use; anything you share with other assistants depends on your choices in those services.</p></article>
         <article class="proof reveal"><span class="badge">demonstrated</span><h3>Only what you approve becomes a rule.</h3><p>The AI logs a decision request; you approve or reject it. Each event type has its own color, and a rejection is recorded just like an approval.</p></article>
-        <article class="proof reveal"><span class="badge">demonstrated</span><h3>A history that can't be erased.</h3><p>Each event stores the SHA-256 of the previous one, in a file that only grows. The app checks the chain and shows "chain intact". If anyone edits an old record, the check flags it.</p></article>
+        <article class="proof reveal"><span class="badge">demonstrated</span><h3>A history you can check.</h3><p>The app checks the links between records and reports inconsistencies. This helps identify changes; it does not prevent file deletion or replace a backup.</p></article>
         <article class="proof reveal"><span class="badge">demonstrated</span><h3>The why stays next to the code.</h3><p>Each module of the project has a short card describing what it does. When new code lands after it, the badge changes from "up to date" to "outdated", so you know what the AI should no longer trust.</p></article>
-        <article class="proof reveal"><span class="badge">measured</span><h3>What working with AI really costs.</h3><p>One real week of work (Oct 17–23, 2026): about 650 million tokens across 33 sessions. On average, the AI re-read 380k tokens on every reply. The biggest cost comes from long conversations, not from code.</p><span class="src">cost meter in testing; joining the suite</span></article>
-        <article class="proof reveal"><span class="badge">measured</span><h3>Tested before it's called done.</h3><p>42 tests in <span class="feat">Feat</span>Desk, 48 in <span class="feat">Feat</span>Reader and 4 for <span class="feat">Feat</span>Room's chain, plus a smoke test of each installed app. Open file formats: if <span class="feat">Feat</span>box disappeared tomorrow, your notes would still open.</p></article>
+        <article class="proof reveal"><span class="badge">in development</span><h3>Understand the cost of revisiting context.</h3><p>Long conversations can require an assistant to re-read a lot of information. A usage meter is being tested to make that consumption more visible as you work.</p><span class="src">feature in testing · savings not yet demonstrated</span></article>
+        <article class="proof reveal"><span class="badge">in evaluation</span><h3>Your work stays accessible.</h3><p>Notes are open-format files in a folder you own. You can open them in other editors. The pilot will help evaluate installation and everyday use in real projects.</p></article>
       </div>
-      <figure class="frame shot proof-shot reveal"><img src="../assets/telas/featroom-fichas.webp" alt="FeatRoom showing the cards of three modules of a website: two up to date and one outdated because code landed after it" width="1228" height="903" loading="lazy"><figcaption class="cap">Real screen · module cards from a demo project · paths hidden · 0.5.3</figcaption></figure>
+      <figure class="frame shot proof-shot reveal"><img src="../assets/telas/featroom-fichas.webp" alt="FeatRoom showing the cards of three modules of a website: two up to date and one outdated because code landed after it" width="1228" height="903" loading="lazy"><figcaption class="cap">Version 0.5.3 capture · demo module cards · paths hidden · previous identity</figcaption></figure>
       <details class="tech reveal">
-        <summary>Under the hood, for technical readers</summary>
+        <summary>What to check before trying it</summary>
         <ul>
-          <li><b>Apps:</b> Electron, one process per app, each with its own data, single-instance lock and tray icon. Per-user install, no admin rights.</li>
-          <li><b>Isolation:</b> contextIsolation on, nodeIntegration off, sandbox on, CSP <code>default-src 'none'</code>. The UI never touches the disk: everything goes through validated IPC.</li>
-          <li><b>Network:</b> <span class="feat">Feat</span>Desk blocks http(s) and ws in its session; links open in the system browser. No feature uses cloud AI in this version.</li>
-          <li><b>Decision log:</b> <code>eventos.jsonl</code>, append-only. Each event stores the SHA-256 of the previous one; the app recomputes the chain and shows whether it is intact. Types: request, approval, rejection, message, execution.</li>
-          <li><b>Several AIs:</b> the log is an open text file inside the project folder. Any assistant working on the project reads the same context and logs in the same format; no provider gets the whole project.</li>
-          <li><b>Module cards:</b> one short card per module, generated from the code and tied to a commit. If an execution event lands after it, the badge turns "outdated".</li>
-          <li><b>Local model:</b> optional, off by default, localhost only (an OpenAI-compatible server such as LM Studio).</li>
-          <li><b>Tests:</b> 42 (<span class="feat">Feat</span>Desk), 48 (<span class="feat">Feat</span>Reader), 4 for the chain (<span class="feat">Feat</span>Room) and a smoke test of each installed app.</li>
+          <li><b>Compatibility:</b> Windows 10 or 11. Version 0.5.3 in evaluation; per-user installation.</li>
+          <li><b>Files:</b> Markdown notes and documents in your own folders. Keep backups as you would for any project.</li>
+          <li><b>Decisions:</b> the history records proposals, approvals and rejections. Integrity checks report inconsistencies between records.</li>
+          <li><b>Sharing:</b> when using other assistants, check what you send and each service’s terms.</li>
+          <li><b>In development:</b> local memory, project questions and usage tracking. These are not presented as finished features.</li>
         </ul>
       </details>
     </div>
@@ -395,7 +392,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <div class="state">
         <div><span><span class="t"><span class="feat">Feat</span>Reader</span><span class="s">Reader with notebooks, highlights, notes and text-to-speech · free</span></span><span class="badge">0.5.3 · evaluation</span></div>
         <div><span><span class="t"><span class="feat">Feat</span>Desk</span><span class="s">Markdown notes in a folder you own, no network · paid suite</span></span><span class="badge">0.5.3 · evaluation</span></div>
-        <div><span><span class="t"><span class="feat">Feat</span>Room</span><span class="s">Verifiable decision chain and module cards · paid suite</span></span><span class="badge">0.5.3 · evaluation</span></div>
+        <div><span><span class="t"><span class="feat">Feat</span>Room</span><span class="s">Decision history and module cards · paid suite</span></span><span class="badge">0.5.3 · evaluation</span></div>
         <div><span><span class="t">Local memory and "Ask the project"</span><span class="s">Search your project with a model running on your PC</span></span><span class="badge">In development</span></div>
         <div><span><span class="t">Pricing and final license</span><span class="s">Everything is unlocked during the pilot; pricing is set with the people who use it</span></span><span class="badge">After the pilot</span></div>
       </div>

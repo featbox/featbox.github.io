@@ -1,39 +1,45 @@
-<p align="center"><img src="assets/marcas/featbox-t3-favicon.svg" width="96" alt="Featbox"></p>
+<p align="center"><img src="assets/marcas/featbox.svg" width="96" alt="Featbox"></p>
 
 # Featbox™
 
 **Trabalhar com IA sem perder o controle.**
 
-Esta é a página pública do Featbox. Os apps são de código fechado; a página e a documentação de apresentação são abertas.
+Esta é a página pública da Featbox. O código dos aplicativos é privado; este repositório contém a apresentação do produto.
 
-## Em uma frase (para todo mundo)
-Você pede uma coisa para a IA, ela faz outra, e uma semana depois ninguém lembra por que o projeto ficou assim. O Featbox é um pacote de três apps para Windows que guarda suas notas e seus documentos no seu computador e registra cada decisão: a IA pede, você aprova ou recusa, e fica anotado para sempre.
+Quando um projeto cresce, as conversas se acumulam, os arquivos se espalham e decisões importantes acabam esquecidas. A Featbox reúne três ferramentas para Windows que ajudam a ler, organizar e acompanhar o trabalho com IA.
 
 | App | Para que serve | Plano |
 |---|---|---|
-| **FeatReader** | ler documentos (md, txt, pdf, docx) com destaques, notas, áudio e leitura em voz | grátis |
-| **FeatDesk** | escrever e organizar notas numa pasta sua | pacote pago |
-| **FeatRoom** | registrar decisões e conferir que o histórico não foi mexido | pacote pago |
+| **FeatReader** | Ler documentos, fazer destaques e guardar notas e áudios em cadernos | Grátis |
+| **FeatDesk** | Escrever e organizar notas em uma pasta sua | Pacote pago |
+| **FeatRoom** | Registrar propostas, aprovações e recusas e conferir o histórico | Pacote pago |
 
-No piloto, tudo fica liberado.
+Durante o piloto, os três apps ficam liberados.
 
-## Por dentro (para quem é técnico)
-- **Stack:** Electron, um processo por app, instalação por usuário sem administrador. contextIsolation ligado, nodeIntegration desligado, sandbox ligado, CSP `default-src 'none'`; a interface só fala com o disco por IPC validado.
-- **Local primeiro:** nenhuma função usa IA de nuvem na 0.5.1. O FeatDesk bloqueia http(s) e ws na sessão. O modelo de linguagem do FeatRoom é opcional e só aceita servidor em localhost (compatível com a API da OpenAI).
-- **Registro encadeado:** `eventos.jsonl` só acrescenta; cada evento guarda o SHA-256 do anterior e o app verifica a cadeia inteira. Uma cadeia pessoal e uma por projeto, dentro da pasta do projeto.
-- **Várias IAs, um contexto:** o registro é texto aberto na pasta do projeto, então qualquer assistente que trabalhe ali lê o mesmo contexto e registra no mesmo formato. Nenhum provedor recebe o projeto inteiro.
-- **Aprovação de regras, não de cada ação:** a IA registra um pedido; só a aprovação humana transforma o pedido em regra. Recusas ficam registradas.
-- **Fichas de módulo:** uma ficha curta por módulo, ligada a um commit; se entra código depois dela, o selo vira "desatualizada".
-- **Testes:** 42 (FeatDesk), 48 (FeatReader), 4 da cadeia (FeatRoom) e teste de fumaça de cada app instalado.
+As notas e os registros ficam no seu computador. Você decide o que compartilhar com outros assistentes. A conferência do histórico ajuda a identificar inconsistências entre registros; não impede apagar arquivos nem substitui cópias de segurança.
 
 ## Estado
-Versão **0.5.1** para Windows 10 e 11, em avaliação. Memória local e "Perguntar ao projeto" em desenvolvimento. Preço e licença definitiva depois do piloto.
+
+Versão **0.5.3**, em avaliação para Windows 10 e 11. Memória local, perguntas ao projeto e medidor de uso estão em desenvolvimento ou teste. Preço e licença definitiva serão definidos depois do piloto.
+
+As capturas do site mostram dados de demonstração da versão 0.5.3 e ainda exibem a identidade anterior dos aplicativos. Os símbolos apresentados ao lado das capturas usam a identidade atual.
+
+## Identidade
+
+Featbox: quadrado em perspectiva. Featbox Suite: composição de eneágono, hexágono e triângulo, sem hastes. A ordem das ferramentas é **Reader (3) → Desk (6) → Room (9, com nós)**. Os vetores usados pela página ficam em `assets/marcas/`.
 
 ## Piloto
-Procuro 5 pessoas que toquem um projeto longo com IA, para usar por 2 semanas. Inscrição: [featbox.company@gmail.com](mailto:featbox.company@gmail.com?subject=Quero%20participar%20do%20piloto%20Featbox).
+
+Procuro 5 pessoas que toquem um projeto longo com IA para usar as ferramentas por 2 semanas. Inclui apoio na instalação e contato direto para relatar o que funciona e o que atrapalha.
+
+Inscrição: [featbox.company@gmail.com](mailto:featbox.company@gmail.com?subject=Quero%20participar%20do%20piloto%20Featbox).
+
+[Página em português](https://featbox.github.io/) · [English](https://featbox.github.io/en/)
 
 ## Quem constrói
+
 Renato Manduca, Garopaba (SC). Mais de uma década em operação de restaurante antes do software. Construo com IA e com uma pessoa aprovando o que importa.
 
 ---
-© 2026 Renato Manduca. Featbox™ e os nomes FeatDesk, FeatReader e FeatRoom são marcas de uso do autor. Fontes IBM Plex e Literata sob a licença OFL (ver `assets/fonts`).
+
+© 2026 Renato Manduca. Featbox™ e os nomes FeatReader, FeatDesk e FeatRoom são marcas de uso do autor. Fontes IBM Plex e Literata sob a licença OFL (ver `assets/fonts`).

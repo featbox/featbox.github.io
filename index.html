@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Featbox · Trabalhar com IA sem perder o controle</title>
-<meta name="description" content="Featbox: FeatDesk, FeatReader e FeatRoom. Cada IA com uma função, toda decisão registrada e aprovada pela pessoa, nenhum provedor com acesso ao projeto inteiro. Versão 0.5.3 para Windows; lista de espera para o piloto.">
+<meta name="description" content="FeatReader, FeatDesk e FeatRoom: leia documentos, organize notas e acompanhe decisões em projetos com IA. Versão 0.5.3 em avaliação para Windows. Inscreva-se no piloto.">
 <meta name="theme-color" content="#121316">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -25,12 +25,12 @@
 <meta name="twitter:description" content="Ferramentas para trabalhar com IA sem perder o controle. Versão 0.5.3; lista de espera para o piloto.">
 <meta name="twitter:image" content="https://featbox.github.io/assets/og-featbox.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/assets/marcas/featbox-t3-favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/marcas/featbox.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/icones/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/assets/icones/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/icones/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Featbox", "applicationCategory": "ProductivityApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "0.5.3", "description": "Pacote de três apps locais para trabalhar com várias IAs sem perder o controle: notas em Markdown (FeatDesk), leitor com cadernos (FeatReader) e registro de decisões encadeado por SHA-256 (FeatRoom).", "inLanguage": "pt-BR", "url": "https://featbox.github.io/", "image": "https://featbox.github.io/assets/og-featbox.png", "author": {"@type": "Person", "name": "Renato Manduca", "address": {"@type": "PostalAddress", "addressLocality": "Garopaba", "addressRegion": "SC", "addressCountry": "BR"}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Featbox", "applicationCategory": "ProductivityApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "0.5.3", "description": "Três ferramentas para Windows: leitura e anotações (FeatReader), organização de notas (FeatDesk) e histórico de decisões (FeatRoom). Versão 0.5.3 em avaliação.", "inLanguage": "pt-BR", "url": "https://featbox.github.io/", "image": "https://featbox.github.io/assets/og-featbox.png", "author": {"@type": "Person", "name": "Renato Manduca", "address": {"@type": "PostalAddress", "addressLocality": "Garopaba", "addressRegion": "SC", "addressCountry": "BR"}}}</script>
 <!-- seo:fim -->
 <link rel="alternate" hreflang="pt-BR" href="https://featbox.github.io/">
 <link rel="alternate" hreflang="en" href="https://featbox.github.io/en/">
@@ -151,10 +151,10 @@ img,svg{display:block;max-width:100%}
 .top .brand{grid-column:2}.cta-wrap{grid-column:3;justify-self:end;display:flex;align-items:center;gap:6px;white-space:nowrap}@media (max-width:480px){.top .cta{display:none}.lang{margin-left:0}}
 .lang{display:inline-flex;gap:6px;margin-left:12px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.08em}.lang a{color:var(--text-3);text-decoration:none;padding:4px 6px;border-radius:6px}.lang a[aria-current]{color:var(--text);background:var(--bg-3)}
 .feat{color:var(--dot);font:inherit;letter-spacing:inherit}
-.tool-txt{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.tool-txt h3{margin:6px 0 10px}.app-mark-lg{width:72px;height:72px;align-self:center}
+.tool-txt{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}.tool-txt h3{margin:6px 0 10px}.app-mark-lg{width:112px;height:112px;align-self:center;justify-self:end;display:block}@media(max-width:640px){.tool-txt{grid-template-columns:minmax(0,1fr) 84px;gap:8px 14px}.tool-txt>div{display:contents}.tool-txt .role{grid-column:1;grid-row:1}.tool-txt h3{grid-column:1;grid-row:2;font-size:clamp(24px,7vw,30px)}.tool-txt p{grid-column:1/-1;grid-row:3}.app-mark-lg{width:84px;height:84px;max-width:none;grid-column:2;grid-row:1/3}}
 .frame.shot{display:block;aspect-ratio:auto;padding:0;background:var(--bg);overflow:hidden;margin:0}
 .frame.shot img{display:block;width:100%;height:auto;border-radius:0}
-.frame.shot .cap{display:block;padding:8px 12px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--text-3);border-top:1px solid var(--line)}
+.frame.shot .cap{position:static;display:block;padding:8px 12px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--text-3);border-top:1px solid var(--line)}
 .proofs{margin-top:48px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 .proof{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
 .proof h3{margin:0;font-size:19px;line-height:1.3}
@@ -222,7 +222,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   .tools{grid-template-columns:1fr;gap:28px}
   .tool{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);grid-template-areas:"frame ." "frame head" "frame role" "frame title" "frame text" "frame .";grid-template-rows:1fr auto auto auto auto 1fr;column-gap:48px;row-gap:14px;padding:32px}
   .tool .frame{grid-area:frame;align-self:center;margin-bottom:0}
-  .tool .head{grid-area:head;align-self:end}
+  .tool .head{grid-column:2;grid-row:2;align-self:end}.tool-txt{grid-column:2;grid-row:3/6;min-width:0}.tool:nth-child(even) .head,.tool:nth-child(even) .tool-txt{grid-column:1}
   .tool .role{grid-area:role}.tool h3{grid-area:title}.tool p{grid-area:text}
   .tool:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);grid-template-areas:". frame" "head frame" "role frame" "title frame" "text frame" ". frame"}
   .tool h3{font-size:36px}.tool p{font-size:17px}
@@ -244,7 +244,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 <header class="top">
   <div class="wrap">
     <nav aria-label="Seções"><a href="#proposta">Proposta</a><a href="#ferramentas">Ferramentas</a><a href="#provas">Na prática</a><a href="#estado">Estado</a><a href="#piloto">Piloto</a></nav>
-    <a class="brand" href="#topo" aria-label="Featbox, início"><img src="assets/marcas/featbox-t3-favicon.svg" alt="" width="30" height="30"><span><span class="feat">Feat</span>box</span></a>
+    <a class="brand" href="#topo" aria-label="Featbox, início"><img src="assets/marcas/featbox.svg" alt="" width="30" height="30"><span><span class="feat">Feat</span>box</span></a>
     <span class="cta-wrap"><a class="cta" href="#piloto">Quero testar</a><span class="lang"><a href="./" aria-current="page" hreflang="pt-BR">PT</a><a href="en/" hreflang="en" lang="en">EN</a></span></span>
   </div>
 </header>
@@ -255,7 +255,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <div>
         <p class="kicker"><span>Pacote de ferramentas</span><span>0.5.3 · lista de espera</span></p>
         <h1 id="titulo" class="display">Trabalhar com IA <span class="l2 foil">sem perder o controle.</span></h1>
-        <p class="lead"><span class="feat">Feat</span>box é um pacote de ferramentas para quem toca projetos longos com vários assistentes de IA. <strong>Cada IA com a sua função, e a última palavra é sua.</strong></p>
+        <p class="lead">As conversas se acumulam, os arquivos se espalham e fica difícil lembrar por que algo mudou. A <span class="feat">Feat</span>box reúne três ferramentas para ler, organizar e acompanhar decisões em projetos com IA. <strong>Cada IA com a sua função, e a última palavra é sua.</strong></p>
         <div class="actions">
           <a class="btn btn-primary" href="#ferramentas"><span class="dot"></span>Ver as ferramentas</a>
           <a class="btn btn-ghost" href="#piloto">Quero testar</a>
@@ -273,19 +273,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   </section>
 
   <div class="ticker" aria-hidden="true"><div>
-    <span>Uma função para cada IA</span><span>A decisão é humana</span><span>Nenhum provedor vê tudo</span><span>Testado e documentado</span><span>Método antes de ferramenta</span>
-    <span>Uma função para cada IA</span><span>A decisão é humana</span><span>Nenhum provedor vê tudo</span><span>Testado e documentado</span><span>Método antes de ferramenta</span>
+    <span>Uma função para cada IA</span><span>A decisão é humana</span><span>Você escolhe o que compartilhar</span><span>Testado e documentado</span><span>Método antes de ferramenta</span>
+    <span>Uma função para cada IA</span><span>A decisão é humana</span><span>Você escolhe o que compartilhar</span><span>Testado e documentado</span><span>Método antes de ferramenta</span>
   </div></div>
 
   <section class="section" id="proposta" aria-labelledby="t-proposta">
     <div class="wrap">
       <p class="label"><b>[01]</b> A proposta</p>
       <h2 id="t-proposta" class="display reveal">Método antes <span class="foil">de ferramenta.</span></h2>
-      <p class="lead reveal">IA sem processo é automação de bagunça. O <span class="feat">Feat</span>box parte de três princípios e as ferramentas existem para cumpri-los.</p>
+      <p class="lead reveal">Retomar um projeto não deveria exigir reler semanas de conversa. A <span class="feat">Feat</span>box parte de três princípios para ajudar você a continuar de onde parou.</p>
       <div class="cols">
         <div class="col reveal"><span class="num foil">01</span><h3>Uma função para cada IA</h3><p>Cada assistente faz o que faz melhor: planejar, pesquisar, revisar. O contexto do projeto é o mesmo para todos.</p></div>
         <div class="col reveal"><span class="num foil">02</span><h3>A decisão é humana</h3><p>A IA propõe, pesquisa e executa. O que vira regra passa pela aprovação da pessoa e fica registrado com data e fonte.</p></div>
-        <div class="col reveal"><span class="num foil">03</span><h3>Nenhum provedor vê tudo</h3><p>Cada provedor recebe só o que a sua função pede. O projeto completo fica com você, em arquivos seus.</p></div>
+        <div class="col reveal"><span class="num foil">03</span><h3>Você escolhe o que compartilhar</h3><p>Seu projeto fica em arquivos no seu computador. Ao trabalhar com um assistente, você decide quais informações compartilhar.</p></div>
       </div>
     </div>
   </section>
@@ -294,28 +294,28 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="wrap">
       <p class="label"><b>[02]</b> As ferramentas</p>
       <h2 id="t-ferramentas" class="display reveal">Três ferramentas, <span class="foil">um mesmo jeito de trabalhar.</span></h2>
-      <p class="lead reveal">Os nomes seguem uma regra simples: Feat + a função. As telas abaixo são capturas de demonstração (pele Featbox); o instalador atual é 0.5.3.</p>
+      <p class="lead reveal">Comece pela leitura, organize o trabalho e acompanhe as decisões. As capturas mostram a versão 0.5.3 com dados de demonstração; os símbolos ao lado apresentam a identidade atual.</p>
       <div class="tools">
-        <article class="tool reveal" aria-labelledby="t-desk">
-          <div class="head"><span class="idx">FB/01</span><span class="badge">0.5.3</span></div>
-          <figure class="frame shot"><img src="assets/telas/featdesk.webp" alt="FeatDesk com cinco notas de demonstração, filtros por estado e a lista das alteradas por último" width="1400" height="886" loading="lazy"><figcaption class="cap">Tela real · dados de demonstração · 0.5.3</figcaption></figure>
-          <div class="tool-txt"><div><span class="role">A mesa de trabalho</span>
-          <h3 id="t-desk"><span class="feat">Feat</span>Desk</h3>
-          <p>Notas em Markdown numa pasta sua, em três estados: Pesquisa, Trabalho e Exportar. Busca em tudo, e o app não acessa a internet.</p></div><img class="app-mark-lg" src="assets/marcas/featdesk.svg" alt="" width="72" height="72"></div>
-        </article>
         <article class="tool reveal" aria-labelledby="t-reader">
-          <div class="head"><span class="idx">FB/02</span><span class="badge">0.5.3</span></div>
-          <figure class="frame shot"><img src="assets/telas/featreader.webp" alt="FeatReader na pasta de notas, pronto para abrir um documento e criar o caderno dele" width="1400" height="886" loading="lazy"><figcaption class="cap">Tela real · dados de demonstração · 0.5.3</figcaption></figure>
+          <div class="head"><span class="idx">FB/01</span><span class="badge">0.5.3</span></div>
+          <figure class="frame shot"><img src="assets/telas/featreader.webp" alt="FeatReader na pasta de notas, pronto para abrir um documento e criar o caderno dele" width="1400" height="886" loading="lazy"><figcaption class="cap">Captura 0.5.3 · dados de demonstração · identidade anterior</figcaption></figure>
           <div class="tool-txt"><div><span class="role">O leitor</span>
           <h3 id="t-reader"><span class="feat">Feat</span>Reader</h3>
-          <p>Lê md, txt, pdf e docx. Cada documento ganha um caderno com destaques, notas e áudio, e a leitura em voz é feita no seu computador. Grátis.</p></div><img class="app-mark-lg" src="assets/marcas/featreader.svg" alt="" width="72" height="72"></div>
+          <p>Leia documentos, faça destaques e guarde notas e áudios no caderno de cada leitura. Abre md, txt, pdf e docx, com leitura em voz no seu computador. Grátis.</p></div><img class="app-mark-lg" src="assets/marcas/featreader.svg" alt="" width="112" height="112"></div>
+        </article>
+        <article class="tool reveal" aria-labelledby="t-desk">
+          <div class="head"><span class="idx">FB/02</span><span class="badge">0.5.3</span></div>
+          <figure class="frame shot"><img src="assets/telas/featdesk.webp" alt="FeatDesk com cinco notas de demonstração, filtros por estado e a lista das alteradas por último" width="1400" height="886" loading="lazy"><figcaption class="cap">Captura 0.5.3 · dados de demonstração · identidade anterior</figcaption></figure>
+          <div class="tool-txt"><div><span class="role">A mesa de trabalho</span>
+          <h3 id="t-desk"><span class="feat">Feat</span>Desk</h3>
+          <p>Escreva e encontre suas notas numa pasta do seu computador. Organize o trabalho em Pesquisa, Trabalho e Exportar. Os arquivos continuam seus e podem ser abertos em outros editores.</p></div><img class="app-mark-lg" src="assets/marcas/featdesk.svg" alt="" width="112" height="112"></div>
         </article>
         <article class="tool reveal" aria-labelledby="t-room">
           <div class="head"><span class="idx">FB/03</span><span class="badge">0.5.3</span></div>
-          <figure class="frame shot"><img src="assets/telas/featroom-eventos.webp" alt="FeatRoom com a cadeia pessoal: um pedido de decisão, uma aprovação e uma recusa, e o selo de cadeia íntegra" width="1228" height="903" loading="lazy"><figcaption class="cap">Tela real · dados de demonstração · 0.5.3</figcaption></figure>
+          <figure class="frame shot"><img src="assets/telas/featroom-eventos.webp" alt="FeatRoom com a cadeia pessoal: um pedido de decisão, uma aprovação e uma recusa, e o selo de cadeia íntegra" width="1228" height="903" loading="lazy"><figcaption class="cap">Captura 0.5.3 · dados de demonstração · identidade anterior</figcaption></figure>
           <div class="tool-txt"><div><span class="role">A sala das decisões</span>
           <h3 id="t-room"><span class="feat">Feat</span>Room</h3>
-          <p>Cada pedido, aprovação e recusa entra numa cadeia com hash: dá para provar o que foi decidido e quando. Uma cadeia pessoal e uma por projeto.</p></div><img class="app-mark-lg" src="assets/marcas/featroom.svg" alt="" width="72" height="72"></div>
+          <p>Registre propostas, aprovações e recusas para retomar o motivo de cada decisão. Consulte o histórico pessoal ou do projeto e confira a integridade dos registros.</p></div><img class="app-mark-lg" src="assets/marcas/featroom.svg" alt="" width="112" height="112"></div>
         </article>
       </div>
     </div>
@@ -361,27 +361,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="wrap">
       <p class="label"><b>[05]</b> Na prática</p>
       <h2 id="t-provas" class="display reveal">O que já dá <span class="foil">para mostrar.</span></h2>
-      <p class="lead reveal">Aqui só entra o que funciona e dá para conferir, ou o que foi medido. O que ainda é hipótese fica de fora.</p>
+      <p class="lead reveal">Veja o que as telas de demonstração apresentam e o que você poderá avaliar no piloto.</p>
       <div class="proofs">
-        <article class="proof reveal"><span class="badge">demonstrado</span><h3>Nada sai do seu computador.</h3><p>Nenhuma função usa IA de nuvem nesta versão, e a tela Sobre de cada app declara isso. O <span class="feat">Feat</span>Desk bloqueia qualquer conexão de rede. O modelo de linguagem do <span class="feat">Feat</span>Room é opcional, vem desligado e só aceita um modelo rodando no próprio PC.</p></article>
+        <article class="proof reveal"><span class="badge">demonstrado</span><h3>Uma pasta sua como ponto de partida.</h3><p>Documentos, notas e registros ficam no seu computador. A versão 0.5.3 é apresentada para uso local; qualquer conteúdo que você compartilhe com outros assistentes depende das suas escolhas nesses serviços.</p></article>
         <article class="proof reveal"><span class="badge">demonstrado</span><h3>Só vira regra o que você aprova.</h3><p>A IA registra um pedido de decisão; você aprova ou recusa. Cada tipo de evento tem sua cor, e a recusa fica registrada tanto quanto a aprovação.</p></article>
-        <article class="proof reveal"><span class="badge">demonstrado</span><h3>Histórico que não se apaga.</h3><p>Cada evento guarda o SHA-256 do anterior, num arquivo que só cresce. O app confere a cadeia e mostra "cadeia íntegra". Se alguém mexer num registro antigo, a conferência acusa.</p></article>
+        <article class="proof reveal"><span class="badge">demonstrado</span><h3>Um histórico que você pode conferir.</h3><p>O app verifica a ligação entre os registros e informa se encontrou inconsistências. Essa conferência ajuda a identificar alterações; não impede a exclusão de arquivos nem substitui uma cópia de segurança.</p></article>
         <article class="proof reveal"><span class="badge">demonstrado</span><h3>O porquê fica junto do código.</h3><p>Cada módulo do projeto tem uma ficha curta do que faz. Quando entra código novo depois dela, o selo muda de "em dia" para "desatualizada", e você sabe em que a IA não deve mais confiar.</p></article>
-        <article class="proof reveal"><span class="badge">medido</span><h3>Quanto custa trabalhar com IA.</h3><p>Numa semana real de trabalho (17 a 23/10/2026): cerca de 650 milhões de tokens em 33 sessões. Em média, a IA relia 380 mil tokens a cada resposta. O custo maior vem de conversa longa, não de código.</p><span class="src">medidor de custos em teste; entra no pacote</span></article>
-        <article class="proof reveal"><span class="badge">medido</span><h3>Testado antes de chamar de pronto.</h3><p>42 testes no <span class="feat">Feat</span>Desk, 48 no <span class="feat">Feat</span>Reader e 4 da cadeia do <span class="feat">Feat</span>Room, mais um teste de cada app já instalado. Arquivos em formatos abertos: se o <span class="feat">Feat</span>box sumir amanhã, suas notas continuam abrindo.</p></article>
+        <article class="proof reveal"><span class="badge">em desenvolvimento</span><h3>Entender o custo de retomar contexto.</h3><p>Conversas longas podem exigir que o assistente releia muita informação. Um medidor de uso está em teste para tornar esse consumo mais visível durante o trabalho.</p><span class="src">recurso em teste · economia ainda não demonstrada</span></article>
+        <article class="proof reveal"><span class="badge">em avaliação</span><h3>Seu trabalho continua acessível.</h3><p>As notas são arquivos em formatos abertos, numa pasta sua. Você pode abri-las em outros editores. O piloto vai ajudar a avaliar a experiência de instalação e uso em projetos reais.</p></article>
       </div>
-      <figure class="frame shot proof-shot reveal"><img src="assets/telas/featroom-fichas.webp" alt="FeatRoom mostrando as fichas de três módulos de um site: duas em dia e uma desatualizada porque entrou código depois dela" width="1228" height="903" loading="lazy"><figcaption class="cap">Tela real · fichas de módulo de um projeto de demonstração · caminhos ocultados · 0.5.3</figcaption></figure>
+      <figure class="frame shot proof-shot reveal"><img src="assets/telas/featroom-fichas.webp" alt="FeatRoom mostrando as fichas de três módulos de um site: duas em dia e uma desatualizada porque entrou código depois dela" width="1228" height="903" loading="lazy"><figcaption class="cap">Captura 0.5.3 · fichas de um projeto de demonstração · caminhos ocultados · identidade anterior</figcaption></figure>
       <details class="tech reveal">
-        <summary>Por dentro, para quem é técnico</summary>
+        <summary>Para quem quer conferir antes de testar</summary>
         <ul>
-          <li><b>Apps:</b> Electron, um processo por app, cada um com seus dados, trava de instância única e ícone na bandeja. Instalação por usuário, sem administrador.</li>
-          <li><b>Isolamento:</b> contextIsolation ligado, nodeIntegration desligado, sandbox ligado, CSP <code>default-src 'none'</code>. A interface não toca o disco: tudo passa por IPC validado.</li>
-          <li><b>Rede:</b> o <span class="feat">Feat</span>Desk bloqueia http(s) e ws na sessão; links abrem no navegador do sistema. Nenhuma função usa IA de nuvem nesta versão.</li>
-          <li><b>Registro de decisões:</b> <code>eventos.jsonl</code>, só acrescenta. Cada evento guarda o SHA-256 do anterior; o app recalcula a cadeia e mostra se está íntegra. Tipos: pedido, aprovação, recusa, mensagem, execução.</li>
-          <li><b>Várias IAs:</b> o registro é um arquivo de texto aberto dentro da pasta do projeto. Qualquer assistente que trabalhe no projeto lê o mesmo contexto e registra no mesmo formato; nenhum provedor recebe o projeto inteiro.</li>
-          <li><b>Fichas de módulo:</b> uma ficha curta por módulo, gerada a partir do código e ligada a um commit. Se entra um evento de execução depois dela, o selo vira "desatualizada".</li>
-          <li><b>Modelo local:</b> opcional, desligado por padrão, só em localhost (servidor compatível com a API da OpenAI, como o LM Studio).</li>
-          <li><b>Testes:</b> 42 (<span class="feat">Feat</span>Desk), 48 (<span class="feat">Feat</span>Reader), 4 da cadeia (<span class="feat">Feat</span>Room) e teste de fumaça de cada app instalado.</li>
+          <li><b>Compatibilidade:</b> Windows 10 ou 11. Versão 0.5.3 em avaliação; instalação por usuário.</li>
+          <li><b>Arquivos:</b> notas em Markdown e documentos nas suas pastas. Faça cópias de segurança como faria com qualquer projeto.</li>
+          <li><b>Decisões:</b> o histórico registra propostas, aprovações e recusas. A conferência de integridade aponta inconsistências entre registros.</li>
+          <li><b>Compartilhamento:</b> ao usar outros assistentes, confira o que você envia e as condições de cada serviço.</li>
+          <li><b>Em desenvolvimento:</b> memória local, perguntas ao projeto e medidor de uso. Esses recursos não são apresentados como entregas prontas.</li>
         </ul>
       </details>
     </div>
@@ -395,7 +392,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <div class="state">
         <div><span><span class="t"><span class="feat">Feat</span>Reader</span><span class="s">Leitor com cadernos, destaques, notas e leitura em voz · grátis</span></span><span class="badge">0.5.3 · avaliação</span></div>
         <div><span><span class="t"><span class="feat">Feat</span>Desk</span><span class="s">Notas em Markdown numa pasta sua, sem rede · pacote pago</span></span><span class="badge">0.5.3 · avaliação</span></div>
-        <div><span><span class="t"><span class="feat">Feat</span>Room</span><span class="s">Cadeia verificável de decisões e fichas de módulo · pacote pago</span></span><span class="badge">0.5.3 · avaliação</span></div>
+        <div><span><span class="t"><span class="feat">Feat</span>Room</span><span class="s">Histórico de decisões e fichas de módulo · pacote pago</span></span><span class="badge">0.5.3 · avaliação</span></div>
         <div><span><span class="t">Memória local e "Perguntar ao projeto"</span><span class="s">Busca no seu projeto com um modelo rodando no PC</span></span><span class="badge">Em desenvolvimento</span></div>
         <div><span><span class="t">Preço e licença definitiva</span><span class="s">No piloto tudo fica liberado; o preço se define com quem usar</span></span><span class="badge">Depois do piloto</span></div>
       </div>
