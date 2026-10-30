@@ -22,11 +22,11 @@ As notas e os registros ficam no seu computador. Você decide o que compartilhar
 
 Versão **0.5.3**, em avaliação para Windows 10 e 11. Memória local, perguntas ao projeto e medidor de uso estão em desenvolvimento ou teste. Preço e licença definitiva serão definidos depois do piloto.
 
-As capturas do site mostram dados de demonstração da versão 0.5.3 e ainda exibem a identidade anterior dos aplicativos. Os símbolos apresentados ao lado das capturas usam a identidade atual.
+As capturas do site foram feitas com os aplicativos em execução a partir do código em desenvolvimento (0.5.3), usando dados fictícios e a identidade atual. Elas não substituem a validação do instalador em um PC limpo.
 
 ## Identidade
 
-Featbox: quadrado em perspectiva. Featbox Suite: composição de eneágono, hexágono e triângulo, sem hastes. A ordem das ferramentas é **Reader (3) → Desk (6) → Room (9, com nós)**. Os vetores usados pela página ficam em `assets/marcas/`.
+Featbox: quadrado em perspectiva. Featbox Suite: composição de eneágono, hexágono e triângulo, sem hastes. A ordem das ferramentas é **Reader (3) → Desk (6) → Room (9, com nós)**. Os vetores usados pela página ficam em `assets/marcas/`. As versões `*-sm.svg`, para aplicações pequenas, usam traços e ponto central reforçados. A versão compacta da Suíte simplifica o composto para manter a leitura.
 
 ## Piloto
 
