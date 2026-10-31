@@ -280,17 +280,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   <section class="section" id="proposta" aria-labelledby="t-proposta">
     <div class="wrap">
       <p class="label"><b>[01]</b> The approach</p>
-      <h2 id="t-proposta" class="display reveal">Less retelling. <span class="foil">Clearer decisions.</span></h2>
-      <p class="lead reveal">For independent professionals who deliver digital projects and switch between AI assistants.</p>
-      <div class="cols"><div class="col reveal"><span class="num foil">01</span><h3>Separate proposal from decision</h3><p>Capture a suggestion, review it and record why you accepted or rejected it.</p></div><div class="col reveal"><span class="num foil">02</span><h3>Know which version you reviewed</h3><p>Optionally reference a file. The app checks that it has not changed before recording approval.</p></div><div class="col reveal"><span class="num foil">03</span><h3>Start the next conversation</h3><p>Select the decisions and open questions, review the summary, then copy it to another assistant.</p></div></div>
+      <h2 id="t-proposta" class="display reveal">Briefing, budget, <span class="foil">document.</span></h2>
+      <p class="lead reveal">For people who prepare proposals and budgets often and need the spreadsheet and PDF to show the same total.</p>
+      <div class="cols"><div class="col reveal"><span class="num foil">01</span><h3>Deterministic total</h3><p>Budgets compute in cents. The revision total matches the sheet and the PDF.</p></div><div class="col reveal"><span class="num foil">02</span><h3>Preserved revision</h3><p>When the client changes quantity, v2 is born. v1 stays with its earlier hash.</p></div><div class="col reveal"><span class="num foil">03</span><h3>A person promotes</h3><p>AI may suggest impact. Only a person promotes, with a grant on the exact document fingerprint.</p></div></div>
     </div>
   </section>
 
   <section class="section" id="ferramentas" aria-labelledby="t-ferramentas">
     <div class="wrap">
       <p class="label"><b>[02]</b> The tools</p>
-      <h2 id="t-ferramentas" class="display reveal">Three tools. <span class="foil">Start with one decision.</span></h2>
-      <p class="lead reveal">Reader and Desk support reading and notes. Room is the starting point for decisions and reviewed context. Captures use fictional data: Reader/Desk 0.5.3; Room 0.6.0-rc.1.</p>
+      <h2 id="t-ferramentas" class="display reveal">Local bench. <span class="foil">Start with the proposal.</span></h2>
+      <p class="lead reveal">In this pilot the active slice is the Desk proposal bench (WordCraft, sheet, PDF). Room records the human decision. Reader is out of scope for this cycle.</p>
       <div class="tools">
         <article class="tool reveal" aria-labelledby="t-reader">
           <div class="head"><span class="idx">FB/01</span><span class="badge">0.5.3</span></div>
@@ -304,7 +304,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
           <figure class="frame shot"><img src="../assets/telas/featdesk.webp?v=053-marca2" alt="FeatDesk with five demo notes, filters by state and the recently edited list" width="1400" height="886" loading="lazy"><figcaption class="cap">App in development · 0.5.3 · fictional data</figcaption></figure>
           <div class="tool-txt"><div><span class="role">The workbench</span>
           <h3 id="t-desk"><span class="feat">Feat</span>Desk</h3>
-          <p>Write and find your notes in a folder on your computer. Organize work into Research, Work and Export. Your files remain yours and open in other editors.</p></div><img class="app-mark-lg" src="../assets/marcas/featdesk.svg" alt="" width="112" height="112"></div>
+          <p>Briefing, budget and document bench. Generate revisions, edit in WordCraft, export the folder. Files stay on your disk — the app does not send them for you.</p></div><img class="app-mark-lg" src="../assets/marcas/featdesk.svg" alt="" width="112" height="112"></div>
         </article>
         <article class="tool reveal" aria-labelledby="t-room">
           <div class="head"><span class="idx">FB/03</span><span class="badge">0.6.0-rc.1</span></div>
@@ -321,18 +321,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="wrap ledger-wrap">
       <div>
         <p class="label"><b>[03]</b> How a decision moves</p>
-        <h2 id="t-decisao" class="display reveal">The AI proposes. <span class="foil">You decide.</span></h2>
-        <p class="lead reveal">Alongside, an illustration of how a proposal becomes a rule.</p>
+        <h2 id="t-decisao" class="display reveal">AI suggests. <span class="foil">You promote.</span></h2>
+        <p class="lead reveal">Alongside, the path from a commercial delivery to operational authority.</p>
       </div>
-      <figure class="ledger reveal" style="margin:0" aria-label="Illustration of a decision&#x27;s path: proposal, review, waiting for approval and approved">
-        <div class="bar"><span>log · project</span><i>illustration</i></div>
+      <figure class="ledger reveal" style="margin:0" aria-label="Illustration: briefing, revision, human promotion and exported folder">
+        <div class="bar"><span>delivery · proposal</span><i>illustration</i></div>
         <ol>
-          <li><span class="st">proposal</span><span>an AI suggests a change, with its source</span></li>
-          <li><span class="st">review</span><span>another AI, with another role, reviews the proposal</span></li>
-          <li class="wait"><span class="st">waiting</span><span>you approve or reject<span class="caret" aria-hidden="true"></span></span></li>
-          <li class="ok"><span class="st">approved</span><span>it enters the selected context, with the reason recorded</span></li>
+          <li><span class="st">briefing</span><span>goal, lines and exclusions in Desk</span></li>
+          <li><span class="st">revision</span><span>generate v1 — sheet and PDF share the total</span></li>
+          <li class="wait"><span class="st">change</span><span>client edits scope — v2 appears; v1 stays<span class="caret" aria-hidden="true"></span></span></li>
+          <li class="ok"><span class="st">promoted</span><span>person + fingerprint; then export the folder</span></li>
         </ol>
-        <figcaption class="note">an illustration of the principle, not a product screen</figcaption>
+        <figcaption class="note">pilot-flow illustration, not a screenshot</figcaption>
       </figure>
     </div>
   </section>
@@ -358,8 +358,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <p class="label"><b>[05]</b> In practice</p>
       <h2 id="t-provas" class="display reveal">What we can <span class="foil">already show.</span></h2>
       <p class="lead reveal">See what the demo screens show and what you will be able to evaluate during the pilot.</p>
-      <div class="proofs"><article class="proof reveal"><span class="badge">Implemented in RC</span><h3>A decision linked to the proposal</h3><p>Approve or reject the exact proposal you reviewed. Unrelated history entries do not close it.</p></article><article class="proof reveal"><span class="badge">Implemented in RC</span><h3>A file version you can check</h3><p>Reference an exported document or image. Approval is refused if that file changed or is missing. This is a fingerprint, not a backup.</p></article><article class="proof reveal"><span class="badge">Implemented in RC</span><h3>A summary you choose</h3><p>Select one project and the proposals to share. Approved, rejected and pending items remain separate. Copy or save as Markdown.</p></article><article class="proof reveal"><span class="badge">Local records</span><h3>Your folder, your assistants</h3><p>The app does not send the summary to an AI. You choose where to share it, under that service’s terms.</p></article><article class="proof reveal"><span class="badge">Verification</span><h3>Check record consistency</h3><p>The app checks the links between events. It cannot prevent deletion, prove identity or control external agents.</p></article><article class="proof reveal"><span class="badge">Pilot goal</span><h3>Measure whether this helps</h3><p>We will measure the effort to resume a project and whether participants return. Time or token savings have not been established.</p></article></div>
-      <figure class="frame shot proof-shot reveal"><img src="../assets/telas/featroom-contexto.webp?v=060rc1" alt="FeatRoom: reviewed context preview and copy or save controls" width="1228" height="903" loading="lazy"><figcaption class="cap">Packaged app · 0.6.0-rc.1 · fictional data</figcaption></figure>
+      <div class="proofs"><article class="proof reveal"><span class="badge">In the pilot package</span><h3>Document = spreadsheet</h3><p>After Generate revision, the stored total, sheet and PDF must match. Silent drift is a failure.</p></article><article class="proof reveal"><span class="badge">In the pilot package</span><h3>v1 survives v2</h3><p>A quantity change creates a new revision. The previous one stays on disk with its original hash.</p></article><article class="proof reveal"><span class="badge">In the pilot package</span><h3>Human promotion</h3><p>Grant on the PDF fingerprint. An AI label is refused. Suggestions stay applied: false.</p></article><article class="proof reveal"><span class="badge">In the pilot package</span><h3>Exports, does not send</h3><p>The folder leaves with manifesto enviado: false. You send it to the client.</p></article><article class="proof reveal"><span class="badge">Storyboard</span><h3>60-second demo</h3><p>Five real FeatDesk.exe captures on the Camisetas de Corrida flow (fictional data).</p></article><article class="proof reveal"><span class="badge">Pilot goal</span><h3>Measure real use</h3><p>Activation, repeat use, quality and commitment — the 04 criteria. No invented percentages.</p></article></div>
+      <figure class="frame shot proof-shot reveal"><img src="../assets/telas/proposta-piloto/02-revisao-v1.png?v=piloto-20261031" alt="FeatDesk: revision v1 generated with aligned document total" width="1400" height="900" loading="lazy"><figcaption class="cap">Pilot package · real capture · <a href="../demo/proposta/">full storyboard</a></figcaption></figure>
       <details class="tech reveal">
         <summary>What to check before trying it</summary>
         <ul>

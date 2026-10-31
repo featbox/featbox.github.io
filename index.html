@@ -280,17 +280,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   <section class="section" id="proposta" aria-labelledby="t-proposta">
     <div class="wrap">
       <p class="label"><b>[01]</b> A proposta</p>
-      <h2 id="t-proposta" class="display reveal">Menos recomeço. <span class="foil">Mais clareza.</span></h2>
-      <p class="lead reveal">Para profissionais independentes que entregam projetos digitais e alternam entre assistentes de IA.</p>
-      <div class="cols"><div class="col reveal"><span class="num foil">01</span><h3>Separe proposta de decisão</h3><p>Registre uma sugestão, confira o conteúdo e escreva por que aprovou ou recusou.</p></div><div class="col reveal"><span class="num foil">02</span><h3>Saiba qual versão você revisou</h3><p>Vincule um arquivo quando necessário. O app confere se ele mudou antes de registrar a aprovação.</p></div><div class="col reveal"><span class="num foil">03</span><h3>Comece a próxima conversa</h3><p>Selecione decisões e pendências, revise o resumo e leve-o a outro assistente.</p></div></div>
+      <h2 id="t-proposta" class="display reveal">Briefing, orçamento, <span class="foil">documento.</span></h2>
+      <p class="lead reveal">Para quem prepara propostas e orçamentos com frequência e precisa que planilha e PDF digam o mesmo número.</p>
+      <div class="cols"><div class="col reveal"><span class="num foil">01</span><h3>Total determinístico</h3><p>O orçamento calcula em centavos. O total gravado na revisão é o mesmo da planilha e do PDF.</p></div><div class="col reveal"><span class="num foil">02</span><h3>Revisão preservada</h3><p>Quando o cliente muda a quantidade, nasce uma v2. A v1 permanece com o hash anterior.</p></div><div class="col reveal"><span class="num foil">03</span><h3>Pessoa promove</h3><p>A IA pode sugerir impacto. Só uma pessoa promove, com grant no fingerprint exato do documento.</p></div></div>
     </div>
   </section>
 
   <section class="section" id="ferramentas" aria-labelledby="t-ferramentas">
     <div class="wrap">
       <p class="label"><b>[02]</b> As ferramentas</p>
-      <h2 id="t-ferramentas" class="display reveal">Três ferramentas. <span class="foil">Comece por uma decisão.</span></h2>
-      <p class="lead reveal">Reader e Desk apoiam a leitura e as notas. Room é a entrada para decisões e contexto revisado. Capturas com dados fictícios: Reader/Desk 0.5.3; Room 0.6.0-rc.1.</p>
+      <h2 id="t-ferramentas" class="display reveal">Bancada local. <span class="foil">Comece pela proposta.</span></h2>
+      <p class="lead reveal">No piloto, a fatia ativa é a bancada de propostas no Desk (WordCraft, planilha, PDF). Room registra a decisão humana. Reader fica fora deste ciclo.</p>
       <div class="tools">
         <article class="tool reveal" aria-labelledby="t-reader">
           <div class="head"><span class="idx">FB/01</span><span class="badge">0.5.3</span></div>
@@ -304,7 +304,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
           <figure class="frame shot"><img src="assets/telas/featdesk.webp?v=053-marca2" alt="FeatDesk com cinco notas de demonstração, filtros por estado e a lista das alteradas por último" width="1400" height="886" loading="lazy"><figcaption class="cap">App em desenvolvimento · 0.5.3 · dados fictícios</figcaption></figure>
           <div class="tool-txt"><div><span class="role">A mesa de trabalho</span>
           <h3 id="t-desk"><span class="feat">Feat</span>Desk</h3>
-          <p>Escreva e encontre suas notas numa pasta do seu computador. Organize o trabalho em Pesquisa, Trabalho e Exportar. Os arquivos continuam seus e podem ser abertos em outros editores.</p></div><img class="app-mark-lg" src="assets/marcas/featdesk.svg" alt="" width="112" height="112"></div>
+          <p>Bancada de briefing, orçamento e documento. Gere revisões, edite no WordCraft, exporte a pasta. Os arquivos ficam no seu disco — o app não envia sozinho.</p></div><img class="app-mark-lg" src="assets/marcas/featdesk.svg" alt="" width="112" height="112"></div>
         </article>
         <article class="tool reveal" aria-labelledby="t-room">
           <div class="head"><span class="idx">FB/03</span><span class="badge">0.6.0-rc.1</span></div>
@@ -321,18 +321,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="wrap ledger-wrap">
       <div>
         <p class="label"><b>[03]</b> Como uma decisão anda</p>
-        <h2 id="t-decisao" class="display reveal">A IA propõe. <span class="foil">Você decide.</span></h2>
-        <p class="lead reveal">Ao lado, uma ilustração do caminho de uma proposta até virar regra.</p>
+        <h2 id="t-decisao" class="display reveal">A IA sugere. <span class="foil">Você promove.</span></h2>
+        <p class="lead reveal">Ao lado, o caminho de uma entrega comercial até ter autoridade operacional.</p>
       </div>
-      <figure class="ledger reveal" style="margin:0" aria-label="Ilustração do caminho de uma decisão: proposta, revisão, aguardando aprovação e aprovada">
-        <div class="bar"><span>registro · projeto</span><i>ilustração</i></div>
+      <figure class="ledger reveal" style="margin:0" aria-label="Ilustração: briefing, revisão, promoção humana e pasta exportada">
+        <div class="bar"><span>entrega · proposta</span><i>ilustração</i></div>
         <ol>
-          <li><span class="st">proposta</span><span>uma IA sugere uma mudança, com a fonte</span></li>
-          <li><span class="st">revisão</span><span>você confere a proposta e a versão do arquivo</span></li>
-          <li class="wait"><span class="st">aguardando</span><span>você aprova ou recusa<span class="caret" aria-hidden="true"></span></span></li>
-          <li class="ok"><span class="st">aprovada</span><span>entra no contexto selecionado, com o motivo registrado</span></li>
+          <li><span class="st">briefing</span><span>objetivo, linhas e exclusões no Desk</span></li>
+          <li><span class="st">revisão</span><span>gerar v1 — planilha e PDF com o mesmo total</span></li>
+          <li class="wait"><span class="st">mudança</span><span>cliente altera escopo — nasce v2; v1 fica<span class="caret" aria-hidden="true"></span></span></li>
+          <li class="ok"><span class="st">promovida</span><span>pessoa + fingerprint; aí exporta a pasta</span></li>
         </ol>
-        <figcaption class="note">ilustração do princípio, não é uma tela do produto</figcaption>
+        <figcaption class="note">ilustração do fluxo do piloto, não uma captura</figcaption>
       </figure>
     </div>
   </section>
@@ -358,8 +358,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <p class="label"><b>[05]</b> Na prática</p>
       <h2 id="t-provas" class="display reveal">O que já dá <span class="foil">para mostrar.</span></h2>
       <p class="lead reveal">Veja o que as telas de demonstração apresentam e o que você poderá avaliar no piloto.</p>
-      <div class="proofs"><article class="proof reveal"><span class="badge">Implementado no RC</span><h3>Uma decisão ligada à proposta</h3><p>Aprove ou recuse o texto exato que revisou. Um evento solto no histórico não encerra outro pedido.</p></article><article class="proof reveal"><span class="badge">Implementado no RC</span><h3>Uma versão que dá para conferir</h3><p>Vincule um documento ou imagem exportada. A aprovação é recusada se o arquivo mudou ou sumiu. É uma impressão digital, não um backup.</p></article><article class="proof reveal"><span class="badge">Implementado no RC</span><h3>Um resumo escolhido por você</h3><p>Selecione um projeto e as propostas que quer compartilhar. Aprovadas, recusadas e pendentes ficam separadas. Copie ou salve em Markdown.</p></article><article class="proof reveal"><span class="badge">Registro local</span><h3>Sua pasta, seus assistentes</h3><p>O app não envia o resumo a uma IA. Você escolhe onde compartilhar, conforme as condições daquele serviço.</p></article><article class="proof reveal"><span class="badge">Conferência</span><h3>Histórico que pode ser verificado</h3><p>O app confere a ligação entre eventos. Não impede exclusões, não comprova identidade e não controla agentes externos.</p></article><article class="proof reveal"><span class="badge">Meta do piloto</span><h3>Medir se isso ajuda de verdade</h3><p>Vamos medir o esforço para retomar um projeto e se os participantes voltam a usar. Economia de tempo ou tokens ainda não foi demonstrada.</p></article></div>
-      <figure class="frame shot proof-shot reveal"><img src="assets/telas/featroom-contexto.webp?v=060rc1" alt="FeatRoom: prévia do contexto revisado, com os botões de copiar e salvar" width="1228" height="903" loading="lazy"><figcaption class="cap">Executável · 0.6.0-rc.1 · dados fictícios</figcaption></figure>
+      <div class="proofs"><article class="proof reveal"><span class="badge">No pacote piloto</span><h3>Documento = planilha</h3><p>Depois de Gerar revisão, o total gravado, a planilha e o PDF precisam coincidir. Divergência silenciosa é falha.</p></article><article class="proof reveal"><span class="badge">No pacote piloto</span><h3>v1 não some na v2</h3><p>Mudança de quantidade cria nova revisão. A anterior permanece no disco com o hash original.</p></article><article class="proof reveal"><span class="badge">No pacote piloto</span><h3>Promoção humana</h3><p>Grant no fingerprint do PDF. Label de IA é recusada. Sugestão fica com applied: false.</p></article><article class="proof reveal"><span class="badge">No pacote piloto</span><h3>Exporta, não envia</h3><p>A pasta sai com manifesto enviado: false. Quem manda ao cliente é você.</p></article><article class="proof reveal"><span class="badge">Storyboard</span><h3>Demo de 60 segundos</h3><p>Cinco capturas reais do FeatDesk.exe no fluxo Camisetas de Corrida (dados fictícios).</p></article><article class="proof reveal"><span class="badge">Meta do piloto</span><h3>Medir uso real</h3><p>Ativação, repetição, qualidade e compromisso — critérios do 04. Sem inventar percentual.</p></article></div>
+      <figure class="frame shot proof-shot reveal"><img src="assets/telas/proposta-piloto/02-revisao-v1.png?v=piloto-20261031" alt="FeatDesk: revisão v1 gerada com total alinhado no documento" width="1400" height="900" loading="lazy"><figcaption class="cap">Pacote piloto · captura real · <a href="demo/proposta/">storyboard completo</a></figcaption></figure>
       <details class="tech reveal">
         <summary>Para quem quer conferir antes de testar</summary>
         <ul>
