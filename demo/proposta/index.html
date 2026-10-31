@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Demo 60s · proposta · Featbox</title>
+  <meta name="description" content="Storyboard real do FeatDesk: briefing, revisão, mudança de quantidade e promoção humana. Dados fictícios.">
+  <link rel="icon" href="../../assets/marcas/featbox-sm.svg">
+  <style>
+    :root { --bg:#141210; --paper:#f3efe6; --ink:#1a1714; --muted:#6b645c; --accent:#c45c26; --line:rgba(255,255,255,.08); }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: "Segoe UI", system-ui, sans-serif; background: var(--bg); color: #f5f0e8; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 20px 64px; }
+    a { color: #e8b089; }
+    h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; letter-spacing: -0.02em; margin: 12px 0 8px; }
+    .lead { color: #cfc6ba; max-width: 42rem; line-height: 1.45; }
+    .note { color: var(--muted); font-size: .92rem; margin-top: 10px; }
+    .stage { margin-top: 28px; background: #0e0c0b; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+    .stage img { display:block; width:100%; height:auto; background:#000; }
+    .bar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; padding:14px 16px; border-top:1px solid var(--line); }
+    .cap { color:#d8d0c4; font-size:.95rem; }
+    .nav { display:flex; gap:8px; }
+    button { appearance:none; border:1px solid var(--line); background:#1c1916; color:#f5f0e8; padding:8px 14px; border-radius:8px; cursor:pointer; }
+    button:hover { border-color:#8a5a3a; }
+    button.primary { background: var(--accent); border-color: transparent; color:#fff; font-weight:600; }
+    .steps { display:grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap:8px; margin-top:18px; }
+    .steps button { text-align:left; font-size:.85rem; padding:10px 12px; }
+    .steps button[aria-current="true"] { outline: 2px solid var(--accent); }
+    .cta { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p><a href="../../">← Featbox</a> · <a href="../">demo Room</a></p>
+    <h1>Demo de 60 segundos — proposta</h1>
+    <p class="lead">Capturas reais do <code>FeatDesk.exe</code> (pacote piloto). Briefing → revisão → mudança de quantidade → promoção humana → exportação. O total da planilha e do documento precisam coincidir; a revisão anterior permanece.</p>
+    <p class="note">Exemplo fictício no funil Camisetas de Corrida. Não é cliente Featbox nem captura de dados reais de emprego.</p>
+
+    <div class="stage">
+      <img id="frame" src="../../assets/telas/proposta-piloto/01-briefing-cdc.png" width="1400" height="900" alt="Bancada de proposta com exemplo Camisetas de Corrida carregado">
+      <div class="bar">
+        <p class="cap" id="cap">01 · Briefing e linhas do orçamento</p>
+        <div class="nav">
+          <button type="button" id="prev" aria-label="Anterior">Anterior</button>
+          <button type="button" id="next" class="primary" aria-label="Próximo">Próximo</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="steps" id="steps" role="tablist" aria-label="Passos da demo"></div>
+
+    <div class="cta">
+      <p class="lead">Quer repetir isso com uma proposta sua?</p>
+      <p><a class="primary" href="mailto:featbox.company@gmail.com?subject=Quero%20participar%20do%20piloto%20Featbox&amp;body=Nome%3A%0ATipo%20de%20proposta%20ou%20or%C3%A7amento%3A%0AQuantas%20por%20m%C3%AAs%20(aprox.)%3A%0AWindows%2010%20ou%2011%3F%0AMelhor%20hor%C3%A1rio%20para%2030%20minutos%3A%0A">Quero participar do piloto</a></p>
+    </div>
+  </div>
+  <script>
+    const frames = [
+      { src: '../../assets/telas/proposta-piloto/01-briefing-cdc.png', cap: '01 · Briefing e linhas do orçamento (80 peças)' },
+      { src: '../../assets/telas/proposta-piloto/02-revisao-v1.png', cap: '02 · Gerar revisão — total R$ 4.113,50 (v1)' },
+      { src: '../../assets/telas/proposta-piloto/03-revisao-v2-preserva-v1.png', cap: '03 · Cliente muda para 60 — v1 permanece; v2 R$ 3.106,50' },
+      { src: '../../assets/telas/proposta-piloto/04-promovida.png', cap: '04 · Pessoa promove — grant no fingerprint' },
+      { src: '../../assets/telas/proposta-piloto/05-exportar.png', cap: '05 · Exportar pasta — o app não envia sozinho' },
+    ];
+    let i = 0;
+    const img = document.getElementById('frame');
+    const cap = document.getElementById('cap');
+    const steps = document.getElementById('steps');
+    frames.forEach((f, idx) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = f.cap.split('·')[0].trim();
+      b.setAttribute('role', 'tab');
+      b.addEventListener('click', () => show(idx));
+      steps.appendChild(b);
+    });
+    function show(n) {
+      i = (n + frames.length) % frames.length;
+      img.src = frames[i].src;
+      img.alt = frames[i].cap;
+      cap.textContent = frames[i].cap;
+      [...steps.children].forEach((el, idx) => el.setAttribute('aria-current', idx === i ? 'true' : 'false'));
+    }
+    document.getElementById('prev').onclick = () => show(i - 1);
+    document.getElementById('next').onclick = () => show(i + 1);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') show(i + 1);
+      if (e.key === 'ArrowLeft') show(i - 1);
+    });
+    show(0);
+  </script>
+</body>
+</html>
